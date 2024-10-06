@@ -1,0 +1,3 @@
+[submodule "external/dataset-audio"]
+	path = external/dataset-audio
+	url = https://github.com/Glatzel/dataset-audio.git
