@@ -19,7 +19,7 @@ hop_len = 512
 
 @pytest.fixture(
     params=[
-        Path(__file__).parents[2] / "external/dataset-audio/BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
+        Path(__file__).parents[1] / "external/dataset-audio/BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
     ],
     scope="module",
 )
