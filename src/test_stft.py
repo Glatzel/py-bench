@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import librosa
+import numpy as np
 import pyfftw
 import pytest
 import scipy
@@ -50,7 +51,8 @@ def test_scipy(benchmark, audio):
 
 def test_librosa(benchmark, audio):
     def foo(data):
-        librosa.stft(data, n_fft=n_fft, win_length=win_len, hop_length=hop_len)
+        sp = librosa.stft(data, n_fft=n_fft, win_length=win_len, hop_length=hop_len)
+        np.power(np.abs(sp, out=sp), 2.0, out=sp)
 
     librosa.set_fftlib(pyfftw.interfaces.numpy_fft)
     benchmark.group = group + f"{audio[0]}"
@@ -71,7 +73,15 @@ def test_torch(benchmark, audio):
 def test_ssqueezepy(benchmark, audio):
     # almost no different between if pyfftw is installed
     def foo(data):
-        ssqueezepy.stft(data, win_len=win_len, hop_len=hop_len, n_fft=n_fft)
+        sp = ssqueezepy.stft(
+            data,
+            win_len=win_len,
+            hop_len=hop_len,
+            n_fft=n_fft,
+            dtype="float32",
+            window=scipy.signal.windows.hann(win_len),
+        )
+        np.power(np.sqrt(sp, out=sp), 2.0, out=sp)  # type: ignore
 
     os.environ["SSQ_PARALLEL"] = "1"
     benchmark.group = group + f"{audio[0]}"
