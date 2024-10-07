@@ -9,7 +9,8 @@ environments:
     packages:
       win-64:
       - conda: https://conda.anaconda.org/conda-forge/win-64/audioread-3.0.1-py312h2e8e312_2.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/blas-1.0-mkl.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/win-64/blas-2.120-mkl.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/blas-devel-3.9.0-20_win64_mkl.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/brotli-1.1.0-h2466b09_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/brotli-bin-1.1.0-h2466b09_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/brotli-python-1.1.0-py312h275cf98_2.conda
@@ -34,7 +35,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/importlib-metadata-8.5.0-pyha770c72_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/importlib_metadata-8.5.0-hd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/iniconfig-2.0.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/intel-openmp-2024.2.1-h57928b3_1083.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/intel-openmp-2023.2.0-h57928b3_50497.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/jinja2-3.1.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/joblib-1.4.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/kiwisolver-1.4.7-py312hd5eb7cc_0.conda
@@ -43,11 +44,11 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/lazy_loader-0.4-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/lcms2-2.16-h67d730c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/lerc-4.0.0-h63175ca_0.tar.bz2
-      - conda: https://conda.anaconda.org/conda-forge/win-64/libblas-3.9.0-1_h8933c1f_netlib.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libblas-3.9.0-20_win64_mkl.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libbrotlicommon-1.1.0-h2466b09_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libbrotlidec-1.1.0-h2466b09_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libbrotlienc-1.1.0-h2466b09_2.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/libcblas-3.9.0-5_hd5c7e75_netlib.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libcblas-3.9.0-20_win64_mkl.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libdeflate-1.22-h2466b09_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libexpat-2.6.3-he0c23c2_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libffi-3.4.2-h8ffe710_5.tar.bz2
@@ -55,7 +56,8 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/libhwloc-2.11.1-default_h8125262_1000.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libiconv-1.17-hcfcfb64_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libjpeg-turbo-3.0.0-hcfcfb64_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/liblapack-3.9.0-5_hd5c7e75_netlib.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/win-64/liblapack-3.9.0-20_win64_mkl.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/liblapacke-3.9.0-20_win64_mkl.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libogg-1.3.5-h2466b09_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libopus-1.3.1-h8ffe710_1.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/libpng-1.6.44-h3ca93ac_0.conda
@@ -79,7 +81,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/m2w64-libwinpthread-git-5.0.0.4634.697f757-2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/markupsafe-2.1.5-py312h4389bb4_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/matplotlib-base-3.9.2-py312h90004f6_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/mkl-2023.1.0-h6a75c08_48682.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mkl-2023.2.0-h6a75c08_50497.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mkl-devel-2023.2.0-h57928b3_50497.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/mkl-include-2023.2.0-h6a75c08_50497.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/mpg123-1.32.6-h63175ca_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/mpmath-1.3.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/msgpack-python-1.1.0-py312hd5eb7cc_0.conda
@@ -109,7 +113,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.12.7-hce54a09_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python_abi-3.12-5_cp312.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.4.1-py3.12_cpu_0.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.2.2-py3.12_cpu_0.tar.bz2
       - conda: https://conda.anaconda.org/pytorch/noarch/pytorch-mutex-1.0-cpu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyyaml-6.0.2-py312h4389bb4_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/qhull-2020.2-hc790b64_5.conda
@@ -125,7 +129,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.5.0-pyhc1e730c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h5226925_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.0.2-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.4.1-py312_cpu.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.2.2-py312_cpu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.12.2-pyha770c72_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2024b-hc8b5060_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.22621.0-h57928b3_0.tar.bz2
@@ -191,21 +195,47 @@ packages:
   - numpy
 - kind: conda
   name: blas
-  version: '1.0'
+  version: '2.120'
   build: mkl
+  build_number: 20
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/blas-1.0-mkl.tar.bz2
-  sha256: 4d605a266a84dfb4845dcffdca741b26a8e5ec5445254a998bca1fbbc231836f
-  md5: f621d7bbe874786272e62d72c5a7b4fc
+  url: https://conda.anaconda.org/conda-forge/win-64/blas-2.120-mkl.conda
+  sha256: 05118f39f0c1daa91a40a3495dd843b9ab79b53f34f0c5bc8f6b607edf3178ae
+  md5: 169d630727008b4356a138a3a0f595d4
   depends:
-  - mkl
-  arch: x86_64
-  platform: win
-  track_features:
-  - blas_mkl
-  license: BSD 3-clause
+  - blas-devel 3.9.0 20_win64_mkl
+  - libblas 3.9.0 20_win64_mkl
+  - libcblas 3.9.0 20_win64_mkl
+  - liblapack 3.9.0 20_win64_mkl
+  - liblapacke 3.9.0 20_win64_mkl
+  - m2w64-gcc-libs
+  - m2w64-gcc-libs-core
+  license: BSD-3-Clause
+  license_family: BSD
   purls: []
-  size: 1390
+  size: 16917
+  timestamp: 1700569527126
+- kind: conda
+  name: blas-devel
+  version: 3.9.0
+  build: 20_win64_mkl
+  build_number: 20
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/blas-devel-3.9.0-20_win64_mkl.conda
+  sha256: 65af98c755e9660b34c1055e37221554180e52b5a62cfa1e3e6147b797d199d5
+  md5: 40f21d1e894795983dec1036847e7460
+  depends:
+  - libblas 3.9.0 20_win64_mkl
+  - libcblas 3.9.0 20_win64_mkl
+  - liblapack 3.9.0 20_win64_mkl
+  - liblapacke 3.9.0 20_win64_mkl
+  - mkl >=2023.2.0,<2024.0a0
+  - mkl-devel 2023.2.*
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 16418
+  timestamp: 1700569363958
 - kind: conda
   name: brotli
   version: 1.1.0
@@ -641,18 +671,18 @@ packages:
   timestamp: 1673103208955
 - kind: conda
   name: intel-openmp
-  version: 2024.2.1
-  build: h57928b3_1083
-  build_number: 1083
+  version: 2023.2.0
+  build: h57928b3_50497
+  build_number: 50497
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/intel-openmp-2024.2.1-h57928b3_1083.conda
-  sha256: 0fd2b0b84c854029041b0ede8f4c2369242ee92acc0092f8407b1fe9238a8209
-  md5: 2d89243bfb53652c182a7c73182cce4f
-  license: LicenseRef-IntelSimplifiedSoftwareOct2022
+  url: https://conda.anaconda.org/conda-forge/win-64/intel-openmp-2023.2.0-h57928b3_50497.conda
+  sha256: dd9fded25ebe5c66af30ac6e3685146efdc2d7787035f01bfb546b347f138f6f
+  md5: a401f3cae152deb75bbed766a90a6312
+  license: LicenseRef-ProprietaryIntel
   license_family: Proprietary
   purls: []
-  size: 1852356
-  timestamp: 1723739573141
+  size: 2523079
+  timestamp: 1698351323119
 - kind: conda
   name: jinja2
   version: 3.1.4
@@ -803,21 +833,24 @@ packages:
 - kind: conda
   name: libblas
   version: 3.9.0
-  build: 1_h8933c1f_netlib
-  build_number: 1
+  build: 20_win64_mkl
+  build_number: 20
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/libblas-3.9.0-1_h8933c1f_netlib.tar.bz2
-  sha256: 250eb1a9b62490514a61aa0efc62638f44f6f3b7acd80b4b8eff66bd7319ce2c
-  md5: 2c5ff3ea7416bb5edc70e67f4ee1ff71
+  url: https://conda.anaconda.org/conda-forge/win-64/libblas-3.9.0-20_win64_mkl.conda
+  sha256: 34becfe991510be7b9ee05b4ae466c5a26a72af275c3071c1ca7e2308d3f7e64
+  md5: 6cad6cd2fbdeef4d651b8f752a4da960
   depends:
-  - m2w64-gcc-libs
-  track_features:
-  - blas_netlib blas_netlib_2
+  - mkl 2023.2.0 h6a75c08_50497
+  constrains:
+  - liblapacke 3.9.0 20_win64_mkl
+  - blas * mkl
+  - liblapack 3.9.0 20_win64_mkl
+  - libcblas 3.9.0 20_win64_mkl
   license: BSD-3-Clause
   license_family: BSD
   purls: []
-  size: 198075
-  timestamp: 1603053118509
+  size: 4981090
+  timestamp: 1700569135332
 - kind: conda
   name: libbrotlicommon
   version: 1.1.0
@@ -877,22 +910,23 @@ packages:
 - kind: conda
   name: libcblas
   version: 3.9.0
-  build: 5_hd5c7e75_netlib
-  build_number: 5
+  build: 20_win64_mkl
+  build_number: 20
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/libcblas-3.9.0-5_hd5c7e75_netlib.tar.bz2
-  sha256: a0bf6ff5894026ef4437a7ec9f30e9be97e4f8c2772abf2bba6cd28028701318
-  md5: 4bc72746442cbfa257ceb7c91ee797d1
+  url: https://conda.anaconda.org/conda-forge/win-64/libcblas-3.9.0-20_win64_mkl.conda
+  sha256: e526023ed8e7f6fde43698cd326dd16c8448f29414bab8a9594b33deb57a5347
+  md5: e6d36cfcb2f2dff0f659d2aa0813eb2d
   depends:
-  - libblas 3.9.0.*
-  - m2w64-gcc-libs
-  track_features:
-  - blas_netlib blas_netlib_2
+  - libblas 3.9.0 20_win64_mkl
+  constrains:
+  - blas * mkl
+  - liblapack 3.9.0 20_win64_mkl
+  - liblapacke 3.9.0 20_win64_mkl
   license: BSD-3-Clause
   license_family: BSD
   purls: []
-  size: 97729
-  timestamp: 1618013041863
+  size: 4980937
+  timestamp: 1700569208640
 - kind: conda
   name: libdeflate
   version: '1.22'
@@ -1023,22 +1057,43 @@ packages:
 - kind: conda
   name: liblapack
   version: 3.9.0
-  build: 5_hd5c7e75_netlib
-  build_number: 5
+  build: 20_win64_mkl
+  build_number: 20
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/liblapack-3.9.0-5_hd5c7e75_netlib.tar.bz2
-  sha256: b60ac4f2f367126ae56bfb887ff70a2b202b30597ada35506b13691c76c844e0
-  md5: 5cd729d515884d1302f78010c4bf8748
+  url: https://conda.anaconda.org/conda-forge/win-64/liblapack-3.9.0-20_win64_mkl.conda
+  sha256: 7627ef580c26e48c3496b5885fd32be4e4db49fa1077eb21235dc638489565f6
+  md5: 9510d07424d70fcac553d86b3e4a7c14
   depends:
-  - libblas 3.9.0.*
-  - m2w64-gcc-libs
-  track_features:
-  - blas_netlib blas_netlib_2
+  - libblas 3.9.0 20_win64_mkl
+  constrains:
+  - liblapacke 3.9.0 20_win64_mkl
+  - blas * mkl
+  - libcblas 3.9.0 20_win64_mkl
   license: BSD-3-Clause
   license_family: BSD
   purls: []
-  size: 2878872
-  timestamp: 1618013145083
+  size: 4980967
+  timestamp: 1700569262298
+- kind: conda
+  name: liblapacke
+  version: 3.9.0
+  build: 20_win64_mkl
+  build_number: 20
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/liblapacke-3.9.0-20_win64_mkl.conda
+  sha256: cb637de64f79a353925322f315d7ba67fc5479ad350384861a691229f5011ff9
+  md5: 960008cd6e9827a5c9b68e77fdf3d29f
+  depends:
+  - libblas 3.9.0 20_win64_mkl
+  - libcblas 3.9.0 20_win64_mkl
+  - liblapack 3.9.0 20_win64_mkl
+  constrains:
+  - blas * mkl
+  license: BSD-3-Clause
+  license_family: BSD
+  purls: []
+  size: 4984026
+  timestamp: 1700569320415
 - kind: conda
   name: libogg
   version: 1.3.5
@@ -1502,21 +1557,52 @@ packages:
   timestamp: 1726165916612
 - kind: conda
   name: mkl
-  version: 2023.1.0
-  build: h6a75c08_48682
-  build_number: 48682
+  version: 2023.2.0
+  build: h6a75c08_50497
+  build_number: 50497
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/mkl-2023.1.0-h6a75c08_48682.conda
-  sha256: 4475f772520087890e49006cab030083e69a21534d2ea48ebf2f33f94636886e
-  md5: 178c90a4d129d2c25150220a866b422d
+  url: https://conda.anaconda.org/conda-forge/win-64/mkl-2023.2.0-h6a75c08_50497.conda
+  sha256: 46ec9e767279da219398b6e79c8fa95822b2ed3c8e02ab604615b7d1213a5d5a
+  md5: 064cea9f45531e7b53584acf4bd8b044
   depends:
-  - intel-openmp
+  - intel-openmp 2023.*
   - tbb 2021.*
   license: LicenseRef-ProprietaryIntel
   license_family: Proprietary
   purls: []
-  size: 143887984
-  timestamp: 1681894555912
+  size: 144666110
+  timestamp: 1698352013664
+- kind: conda
+  name: mkl-devel
+  version: 2023.2.0
+  build: h57928b3_50497
+  build_number: 50497
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/mkl-devel-2023.2.0-h57928b3_50497.conda
+  sha256: f74927afc015b7710b55b941da8d13cfa47898e532fe87f3c129448f1f3f4ede
+  md5: 0d52cfab24361c77268b54920c11903c
+  depends:
+  - mkl 2023.2.0 h6a75c08_50497
+  - mkl-include 2023.2.0 h6a75c08_50497
+  license: LicenseRef-ProprietaryIntel
+  license_family: Proprietary
+  purls: []
+  size: 5130637
+  timestamp: 1698352396807
+- kind: conda
+  name: mkl-include
+  version: 2023.2.0
+  build: h6a75c08_50497
+  build_number: 50497
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/mkl-include-2023.2.0-h6a75c08_50497.conda
+  sha256: 110ac10cfa26f3b9e44dd4db82ab145a8202809f1cebd9e62a6698307c93901c
+  md5: 02fd1f15c56cc902aeaf3df3497cf266
+  license: LicenseRef-ProprietaryIntel
+  license_family: Proprietary
+  purls: []
+  size: 688303
+  timestamp: 1698351338951
 - kind: conda
   name: mpg123
   version: 1.32.6
@@ -2086,19 +2172,19 @@ packages:
   timestamp: 1723823139725
 - kind: conda
   name: pytorch
-  version: 2.4.1
+  version: 2.2.2
   build: py3.12_cpu_0
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.4.1-py3.12_cpu_0.tar.bz2
-  sha256: cbecd3cacf24d813945a3d3d28a0fc536a76686dfdd428c1a25408793bc46952
-  md5: 41956861226f3906b1a12a8fb10efd39
+  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.2.2-py3.12_cpu_0.tar.bz2
+  sha256: f3bf9934115bb0e9c54c22cfe629ea924caf1e3b880252f04e0935d2712dcf5d
+  md5: 3cbf52d06ca0e40bf0a8dd607b96fde3
   depends:
   - blas * mkl
   - filelock
   - intel-openmp
   - jinja2
-  - libuv >=1.48.0,<2.0a0
-  - mkl 2023.1.*
+  - libuv >=1.44.2,<2.0a0
+  - mkl >=2018
   - networkx
   - python >=3.12,<3.13.0a0
   - pytorch-mutex 1.0 cpu
@@ -2111,8 +2197,8 @@ packages:
   license_family: BSD
   purls:
   - pkg:pypi/torch?source=hash-mapping
-  size: 153842555
-  timestamp: 1724791161108
+  size: 179385417
+  timestamp: 1711404381248
 - kind: conda
   name: pytorch-mutex
   version: '1.0'
@@ -2413,26 +2499,26 @@ packages:
   timestamp: 1727974767524
 - kind: conda
   name: torchaudio
-  version: 2.4.1
+  version: 2.2.2
   build: py312_cpu
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.4.1-py312_cpu.tar.bz2
-  sha256: 4ce52d4f45169a40d8fa147fa423a21dec968a1db7b55b5c598e455936e138dd
-  md5: 5dc3e3e50001abde90db47865b90a5cc
+  url: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.2.2-py312_cpu.tar.bz2
+  sha256: d228bffcda6c6bf97318627500ec943131e7d6ff626f4c4e0681ece2efea5560
+  md5: 9f946e5bab4215951ad25733c69f07a7
   depends:
   - numpy
   - python >=3.12,<3.13.0a0
-  - pytorch 2.4.1
+  - pytorch 2.2.2
   - pytorch-mutex 1.0 cpu
   - vc >=14.2,<15.0a0
-  - vs2015_runtime >=14.29.30133,<15.0a0
+  - vs2015_runtime >=14.27.29016,<15.0a0
   constrains:
   - cpuonly
   license: BSD
   purls:
   - pkg:pypi/torchaudio?source=hash-mapping
-  size: 6168011
-  timestamp: 1724849148811
+  size: 6094058
+  timestamp: 1711423516149
 - kind: pypi
   name: tqdm
   version: 4.66.5

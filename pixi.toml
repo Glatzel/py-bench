@@ -6,17 +6,17 @@ authors = ["Glatzel <893016099@qq.com>"]
 
 [dependencies]
 python = "*"
+librosa = "*"
+numba = ">=0.60.0"
 numpy = "1.26.*"
+pyfftw = "*"
 pygal = "*"
+pysoundfile = "*"
 pytest = "*"
 pytest-benchmark = "*"
-numba = ">=0.60.0"
-pyfftw = "*"
 pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
-librosa = "*"
-pysoundfile = "*"
 
 [pypi-dependencies]
 audiofile = "*"

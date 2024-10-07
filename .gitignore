@@ -2,14 +2,16 @@ __pycache__
 .benchmarks
 .pixi
 .VSCodeCounter
+*.flac
+*.wav
 bin
+diff.md
 dist
 doc/build
 doc/source/reference/api
 draft
+external/Vision of Her
 histogram
 report.html
 temp
-*.wav
-*.flac
-diff.md
+draft
