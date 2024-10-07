@@ -1,5 +1,5 @@
 [project]
-name = "glatzel-bench"
+name = "glatzel-bench-audio"
 channels = ["conda-forge", "pytorch"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
