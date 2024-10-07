@@ -15,14 +15,19 @@ group = "STFT: "
 n_fft = 1024
 win_len = 1024
 hop_len = 512
+dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
 
 
-@pytest.fixture(
-    params=[
-        Path(__file__).parents[1] / "external/dataset-audio/BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
-    ],
-    scope="module",
-)
+def dataset():
+    if os.getenv("CI"):
+        return [
+            dataset_dir / "single channel/ff-16b-1c-44100hz.wav",
+            dataset_dir / "two channel/ff-16b-2c-44100hz.wav",
+        ]
+    return [dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac"]
+
+
+@pytest.fixture(params=dataset(), scope="module")
 def audio(request):
     file = request.param
     wave, _ = soundfile.read(file, dtype="float32")

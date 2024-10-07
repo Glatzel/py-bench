@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import audiofile
@@ -12,10 +13,16 @@ dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
 group = "Load "
 
 
-@pytest.fixture(
-    params=list((dataset_dir / "BeeMoved").rglob("*.*")) + list((dataset_dir / "two channel").rglob("*.*")),
-    scope="module",
-)
+def dataset():
+    if os.getenv("CI"):
+        return [
+            dataset_dir / "single channel/ff-16b-1c-44100hz.wav",
+            dataset_dir / "two channel/ff-16b-2c-44100hz.wav",
+        ]
+    return list((dataset_dir / "BeeMoved").rglob("*.*")) + list((dataset_dir / "two channel").rglob("*.*"))
+
+
+@pytest.fixture(params=dataset(), scope="module")
 def file(request):
     return request.param
 
