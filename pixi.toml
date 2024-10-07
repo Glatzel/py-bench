@@ -15,11 +15,9 @@ pyfftw = "*"
 pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
+librosa = "*"
+pysoundfile = "*"
 
 [pypi-dependencies]
-pygaljs = "*"
 audiofile = "*"
-librosa = "*"
-soundfile = "*"
 ssqueezepy = "*"
-
