@@ -15,7 +15,10 @@ group = "Load "
 
 def dataset():
     if os.getenv("CI"):
-        return [dataset_dir / "two channel/ff-16b-2c-44100hz.wav"]
+        return [
+            dataset_dir / "single channel/ff-16b-1c-44100hz.wav",
+            dataset_dir / "two channel/ff-16b-2c-44100hz.wav",
+        ]
     return list((dataset_dir / "BeeMoved").rglob("*.*")) + list((dataset_dir / "two channel").rglob("*.*"))
 
 
