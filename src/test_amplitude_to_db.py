@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 
 import librosa
-import numexpr as ne
 import numpy as np
 import soundfile
 import torch
@@ -36,47 +35,6 @@ def init_amplitude():
     transform = torchaudio.transforms.Spectrogram(n_fft=n_fft, hop_length=hop_len, win_length=win_len)
     p = transform(torch.from_numpy(wave))
     return file, p
-
-
-def test_numpy(benchmark):
-    def foo(p):
-        db = 10 * np.log10(p / np.max(p))
-        # normalize
-        np.add(db, top_db, out=db)
-        np.divide(db, top_db, out=db)
-
-    file, amp = init_amplitude()
-    amp = amp.numpy()
-    benchmark.group = group + file.name
-    benchmark.name = "numpy"
-    benchmark(foo, amp)
-
-
-def test_numexpr_normal(benchmark):
-    def foo(p):
-        ref = p.max()  # noqa: F841
-        multiplier = np.float32(10.0)  # noqa: F841
-        top = np.float32(top_db)  # noqa: F841
-        ne.evaluate("(multiplier * log10(p / ref)+top)/top", out=p)
-
-    file, amp = init_amplitude()
-    amp = amp.numpy()
-    benchmark.group = group + file.name
-    benchmark.name = "numexpr normalized"
-    benchmark(foo, amp)
-
-
-def test_numexpr_no_normal(benchmark):
-    def foo(amp):
-        ref = amp.max()  # noqa: F841
-        multiplier = np.float32(10.0)  # noqa: F841
-        ne.evaluate("multiplier * log10(p / ref)", out=amp)
-
-    file, amp = init_amplitude()
-    amp = amp.numpy()
-    benchmark.group = group + file.name
-    benchmark.name = "numexpr no normalize"
-    benchmark(foo, amp)
 
 
 def test_librosa(benchmark):
