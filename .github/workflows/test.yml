@@ -25,4 +25,4 @@ jobs:
       - name: install environment
         run: pixi install
       - name: bench
-        run: pixi run pytest "./src" --benchmark-max-time=0.00005 --benchmark-min-rounds=1
+        run: pixi run pytest "./src" --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
