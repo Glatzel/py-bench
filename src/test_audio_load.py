@@ -21,7 +21,7 @@ def dataset():
         ]
     data = list((dataset_dir / "BeeMoved").rglob("*.*"))
     data += list((dataset_dir / "two channel").rglob("*.*"))
-    data.append(dataset_dir / "Vision of Her/24-88.flac")
+    data.append(dataset_dir / "../Vision of Her/24-88.flac")
     return data
 
 

@@ -26,7 +26,7 @@ def dataset():
         ]
     return [
         dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
-        dataset_dir / "Vision of Her/24-88.flac",
+        dataset_dir / "../Vision of Her/24-88.flac",
     ]
 
 
