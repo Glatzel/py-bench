@@ -26,7 +26,7 @@ def test_numpy(benchmark, audio):
 
     benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "numpy"
-    benchmark(foo, torch.from_numpy(audio[1]))
+    benchmark(foo, audio[1])
 
 
 def test_numpy2(benchmark, audio):
