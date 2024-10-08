@@ -8,9 +8,7 @@ on:
         - edited
         - synchronize
         - ready_for_review
-      paths:
-        - "src/**.py"
-        - "ruff.toml"
+
 jobs:
   ruff-lint:
     strategy:

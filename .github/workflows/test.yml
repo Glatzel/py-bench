@@ -7,10 +7,6 @@ on:
       - edited
       - synchronize
       - ready_for_review
-    paths:
-      - "src/**.py"
-      - "pixi.lock"
-      - "pixi.toml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
