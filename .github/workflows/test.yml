@@ -23,7 +23,7 @@ jobs:
     with: 
       name: test
       machine: windows-latest
-      python_path: $PYTHONPATH;$pwd/src
+      test_path: ./src
       update_submodule: true
       cov: true
       cov_thr: 70
