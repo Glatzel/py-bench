@@ -31,7 +31,7 @@ def test_numpy(benchmark, audio):
 
 def test_numpy2(benchmark, audio):
     def foo(data: np.ndarray):
-        np.mean(data, axis=1, out=data)
+        np.mean(data, axis=1)
 
     benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "numpy2"
