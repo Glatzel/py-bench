@@ -31,11 +31,11 @@ def test_numpy(benchmark, audio):
 
 def test_numpy2(benchmark, audio):
     def foo(data: np.ndarray):
-        np.mean(data, axis=1)
+        np.mean(data, axis=1, out=data)
 
     benchmark.group = group + f"10^{audio[0]}"
-    benchmark.name = "numpy"
-    benchmark(foo, torch.from_numpy(audio[1]))
+    benchmark.name = "numpy2"
+    benchmark(foo, audio[1])
 
 
 def test_torch(benchmark, audio):
@@ -52,5 +52,5 @@ def test_torch2(benchmark, audio):
         torch.mean(data, dim=1)
 
     benchmark.group = group + f"10^{audio[0]}"
-    benchmark.name = "torch"
+    benchmark.name = "torch2"
     benchmark(foo, torch.from_numpy(audio[1]))
