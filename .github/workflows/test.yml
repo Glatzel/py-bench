@@ -12,18 +12,18 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
 jobs:
-  audio:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Update Submodule
-        run: git submodule update --init --recursive
-      - name: Set up pixi
-        uses: prefix-dev/setup-pixi@v0.8.1
-        with:
-          run-install: false
-      - name: install environment
-        run: pixi install
-      - name: bench
-        run: pixi run pytest "./src" --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
+  test:
+    uses: Glatzel/py-template/.github/workflows/pytest.yml@main
+    with: 
+      name: test
+      machine: windows-latest
+      python_path: $PYTHONPATH;$pwd/src
+      submodule: true
+      cov: true
+      cov_thr: 70
