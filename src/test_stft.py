@@ -25,10 +25,11 @@ def dataset():
             dataset_dir / "single channel/ff-16b-1c-44100hz.wav",
             dataset_dir / "two channel/ff-16b-2c-44100hz.wav",
         ]
-    return [
-        dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
-        dataset_dir / "../Vision of Her/24-88.flac",
-    ]
+    else:  # pragma: nocover
+        return [
+            dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
+            dataset_dir / "../Vision of Her/24-88.flac",
+        ]
 
 
 @pytest.fixture(params=dataset(), scope="module")

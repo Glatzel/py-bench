@@ -23,7 +23,7 @@ def init_amplitude():
         n_fft = 1024
         win_len = 1024
         hop_len = 512
-    else:
+    else:  # pragma: nocover
         file = dataset_dir / "../Vision of Her/24-88.flac"
         n_fft = 4096
         win_len = 4096
