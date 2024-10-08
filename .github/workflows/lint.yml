@@ -3,6 +3,11 @@ name: lint
 on:
     workflow_dispatch:
     pull_request:
+      types:
+        - opened
+        - edited
+        - synchronize
+        - ready_for_review
       paths:
         - "src/**.py"
 jobs:
