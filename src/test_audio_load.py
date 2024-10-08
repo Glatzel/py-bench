@@ -13,7 +13,7 @@ dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
 group = "Load: "
 
 
-def dataset():
+def dataset():  # pragma: nocover
     if os.getenv("CI"):
         return [
             dataset_dir / "single channel/ff-16b-1c-44100hz.wav",

@@ -7,10 +7,10 @@ import torch
 group = "Channel merge: "
 
 
-def data_figures():
+def data_figures():  # pragma: nocover
     if os.getenv("CI"):
         return [0]
-    else:  # pragma: nocover
+    else:  
         return range(5, 9)
 
 

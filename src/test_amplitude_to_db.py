@@ -12,7 +12,7 @@ group = "Amplitude to DB: "
 top_db = 100.0
 
 
-def init_amplitude():
+def init_amplitude():  # pragma: nocover
     n_fft: int
     win_len: int
     hop_len: int
@@ -23,7 +23,7 @@ def init_amplitude():
         n_fft = 1024
         win_len = 1024
         hop_len = 512
-    else:  # pragma: nocover
+    else:
         file = dataset_dir / "../Vision of Her/24-88.flac"
         n_fft = 4096
         win_len = 4096
