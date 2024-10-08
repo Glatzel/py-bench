@@ -7,10 +7,11 @@ import torch
 group = "Channel merge: "
 
 
-def data_figures():
+def data_figures():  # pragma: nocover
     if os.getenv("CI"):
         return [0]
-    return range(5, 9)
+    else:
+        return range(5, 9)
 
 
 @pytest.fixture(params=data_figures(), scope="module")

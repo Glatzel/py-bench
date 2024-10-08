@@ -12,7 +12,7 @@ group = "Amplitude to DB: "
 top_db = 100.0
 
 
-def init_amplitude():
+def init_amplitude():  # pragma: nocover
     n_fft: int
     win_len: int
     hop_len: int
