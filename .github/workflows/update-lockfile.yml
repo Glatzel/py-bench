@@ -11,5 +11,3 @@ on:
 jobs:
   pixi-update:
     uses: Glatzel/py-template/.github/workflows/update-lockfiles.yml@main
-    with:
-      base: fix-ci

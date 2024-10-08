@@ -17,7 +17,6 @@ pytest-benchmark = "*"
 pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
-numexpr = "*"
 
 [pypi-dependencies]
 audiofile = "*"
