@@ -10,7 +10,7 @@ group = "Channel merge: "
 def data_figures():  # pragma: nocover
     if os.getenv("CI"):
         return [0]
-    else:  
+    else:
         return range(5, 9)
 
 
