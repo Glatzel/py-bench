@@ -32,7 +32,7 @@ select = [
     "TID",  # flake8-tidy-imports
     "TRY",  # tryceratops
     "UP",   # pyupgrade
-    "W",    # pycodestyle
+    "W",    # pycodestyle 
 ]
 
 [lint.per-file-ignores]
