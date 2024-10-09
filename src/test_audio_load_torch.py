@@ -11,7 +11,7 @@ from scipy.io import wavfile
 
 dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
 
-group = "Load: "
+group = "Load to torch: "
 
 
 def dataset():
