@@ -60,7 +60,7 @@ def test_torch_function_cw(benchmark, audio):
 #  wave, channel
 def test_numpy_method_wc(benchmark, audio):
     def foo(data: np.ndarray):
-        data.mean(1)
+        data.mean(0)
 
     benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "numpy method wc"
@@ -69,7 +69,7 @@ def test_numpy_method_wc(benchmark, audio):
 
 def test_numpy_function_wc(benchmark, audio):
     def foo(data: np.ndarray):
-        np.mean(data, axis=1)
+        np.mean(data, axis=0)
 
     benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "numpy function wc"
@@ -78,7 +78,7 @@ def test_numpy_function_wc(benchmark, audio):
 
 def test_torch_method_wc(benchmark, audio):
     def foo(data: torch.Tensor):
-        data.mean(1)
+        data.mean(0)
 
     benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "torch method wc"
@@ -87,7 +87,7 @@ def test_torch_method_wc(benchmark, audio):
 
 def test_torch_function_wc(benchmark, audio):
     def foo(data: torch.Tensor):
-        torch.mean(data, dim=1)
+        torch.mean(data, dim=0)
 
     benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "torch function wc"
