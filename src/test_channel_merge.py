@@ -9,7 +9,7 @@ group = "Channel merge: "
 
 def data_figures():
     if os.getenv("CI"):
-        return [0]
+        return [1]
     else:  # pragma: nocover
         return range(5, 9)
 
@@ -17,41 +17,78 @@ def data_figures():
 @pytest.fixture(params=data_figures(), scope="module")
 def audio(request):
     rng = np.random.default_rng(1337)
-
     return request.param, rng.random((10**request.param, 2), dtype=np.float32)
 
 
-def test_numpy(benchmark, audio):
+# channel, wave
+def test_numpy_method_cw(benchmark, audio):
     def foo(data: np.ndarray):
         data.mean(1)
 
     benchmark.group = group + f"10^{audio[0]}"
-    benchmark.name = "numpy"
+    benchmark.name = "numpy method cw"
     benchmark(foo, audio[1])
 
 
-def test_numpy2(benchmark, audio):
+def test_numpy_function_cw(benchmark, audio):
     def foo(data: np.ndarray):
         np.mean(data, axis=1)
 
     benchmark.group = group + f"10^{audio[0]}"
-    benchmark.name = "numpy2"
+    benchmark.name = "numpy function cw"
     benchmark(foo, audio[1])
 
 
-def test_torch(benchmark, audio):
+def test_torch_method_cw(benchmark, audio):
     def foo(data: torch.Tensor):
         data.mean(1)
 
     benchmark.group = group + f"10^{audio[0]}"
-    benchmark.name = "torch"
+    benchmark.name = "torch method cw"
     benchmark(foo, torch.from_numpy(audio[1]))
 
 
-def test_torch2(benchmark, audio):
+def test_torch_function_cw(benchmark, audio):
     def foo(data: torch.Tensor):
         torch.mean(data, dim=1)
 
     benchmark.group = group + f"10^{audio[0]}"
-    benchmark.name = "torch2"
+    benchmark.name = "torch function cw"
     benchmark(foo, torch.from_numpy(audio[1]))
+
+
+#  wave, channel
+def test_numpy_method_wc(benchmark, audio):
+    def foo(data: np.ndarray):
+        data.mean(0)
+
+    benchmark.group = group + f"10^{audio[0]}"
+    benchmark.name = "numpy method wc"
+    benchmark(foo, audio[1].T)
+
+
+def test_numpy_function_wc(benchmark, audio):
+    def foo(data: np.ndarray):
+        np.mean(data, axis=0)
+
+    benchmark.group = group + f"10^{audio[0]}"
+    benchmark.name = "numpy function wc"
+    benchmark(foo, audio[1].T)
+
+
+def test_torch_method_wc(benchmark, audio):
+    def foo(data: torch.Tensor):
+        data.mean(0)
+
+    benchmark.group = group + f"10^{audio[0]}"
+    benchmark.name = "torch method wc"
+    benchmark(foo, torch.from_numpy(audio[1].T))
+
+
+def test_torch_function_wc(benchmark, audio):
+    def foo(data: torch.Tensor):
+        torch.mean(data, dim=0)
+
+    benchmark.group = group + f"10^{audio[0]}"
+    benchmark.name = "torch function wc"
+    benchmark(foo, torch.from_numpy(audio[1].T))
