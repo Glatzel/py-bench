@@ -35,7 +35,7 @@ def file(request):
 
 def test_audiofile(benchmark, file):
     def foo():
-        torch.from_numpy(audiofile.read(file))
+        torch.from_numpy(audiofile.read(file)[0])
 
     benchmark.group = group + file.name
     benchmark.name = "audiofile"
@@ -44,7 +44,7 @@ def test_audiofile(benchmark, file):
 
 def test_librosa(benchmark, file):
     def foo():
-        torch.from_numpy(librosa.load(file, mono=False, sr=None))
+        torch.from_numpy(librosa.load(file, mono=False, sr=None)[0])
 
     benchmark.group = group + file.name
     benchmark.name = "librosa"
@@ -53,7 +53,7 @@ def test_librosa(benchmark, file):
 
 def test_scipy(benchmark, file):
     def foo():
-        torch.from_numpy(wavfile.read(file))
+        torch.from_numpy(wavfile.read(file)[1])
 
     benchmark.group = group + file.name
     benchmark.name = "scipy"
@@ -62,7 +62,7 @@ def test_scipy(benchmark, file):
 
 def test_soundfile(benchmark, file):
     def foo():
-        torch.from_numpy(soundfile.read(file))
+        torch.from_numpy(soundfile.read(file)[0])
 
     benchmark.group = group + file.name
     benchmark.name = "soundfile"
