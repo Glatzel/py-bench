@@ -19,13 +19,13 @@ hop_len = 512
 dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
 
 
-def dataset():  # pragma: nocover
+def dataset():
     if os.getenv("CI"):
         return [
             dataset_dir / "single channel/ff-16b-1c-44100hz.wav",
             dataset_dir / "two channel/ff-16b-2c-44100hz.wav",
         ]
-    else:
+    else:  # pragma: nocover
         return [
             dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
             dataset_dir / "../Vision of Her/24-88.flac",
