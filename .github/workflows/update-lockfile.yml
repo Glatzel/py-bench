@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: 0 0 * * 1
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pixi-update:
     uses: Glatzel/py-template/.github/workflows/update-lockfiles.yml@main
