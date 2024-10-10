@@ -1,7 +1,7 @@
 [project]
 name = "glatzel-bench"
 channels = ["conda-forge", "pytorch"]
-platforms = ["win-64","linux-64"]
+platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
 
 [dependencies]
