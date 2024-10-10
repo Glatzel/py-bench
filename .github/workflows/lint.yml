@@ -15,9 +15,4 @@ concurrency:
 
 jobs:
   ruff-lint:
-    strategy:
-      matrix:
-        machine: [windows-latest]
     uses: Glatzel/py-template/.github/workflows/lint.yml@main
-    with:
-      machine: ${{matrix.machine}} 
