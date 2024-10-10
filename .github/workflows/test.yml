@@ -16,9 +16,12 @@ permissions:
 jobs:
   test:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
     with: 
       name: test
-      machine: windows-latest
+      machine: ${{matrix.os}}
       test_path: ./src
       update_submodule: true
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
