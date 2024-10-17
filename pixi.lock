@@ -20,7 +20,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/charset-normalizer-3.4.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/colorama-0.4.6-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/contourpy-1.3.0-py312hd5eb7cc_2.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/coverage-7.6.2-py312h4389bb4_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/coverage-7.6.3-py312h31fea79_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/cycler-0.12.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/decorator-5.1.1-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
@@ -102,7 +102,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pycparser-2.22-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyfftw-0.14.0-py312h6abccc0_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pygal-3.0.5-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.1.4-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.2.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyh0701188_6.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysoundfile-0.12.1-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pytest-8.3.3-pyhd8ed1ab_0.conda
@@ -111,7 +111,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.12.7-hce54a09_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python_abi-3.12-5_cp312.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.4.1-py3.12_cpu_0.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.0-py3.12_cpu_0.tar.bz2
       - conda: https://conda.anaconda.org/pytorch/noarch/pytorch-mutex-1.0-cpu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyyaml-6.0.2-py312h4389bb4_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/qhull-2020.2-hc790b64_5.conda
@@ -128,7 +128,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h5226925_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/toml-0.10.2-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.0.2-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.4.1-py312_cpu.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.5.0-py312_cpu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.12.2-pyha770c72_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2024b-hc8b5060_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.22621.0-h57928b3_1.conda
@@ -398,12 +398,13 @@ packages:
   timestamp: 1727294254434
 - kind: conda
   name: coverage
-  version: 7.6.2
-  build: py312h4389bb4_0
+  version: 7.6.3
+  build: py312h31fea79_1
+  build_number: 1
   subdir: win-64
-  url: https://conda.anaconda.org/conda-forge/win-64/coverage-7.6.2-py312h4389bb4_0.conda
-  sha256: 442f865d0c18243a7b8ffeb8eece05929a5345b8464185008d651683dab97a40
-  md5: b0e1bc38ada7fdf2dd7343bb9f294cd0
+  url: https://conda.anaconda.org/conda-forge/win-64/coverage-7.6.3-py312h31fea79_1.conda
+  sha256: 525d85c76d2410c014727ddcfa156e0961209ccf09b148cf7d1a4f8eba1800b5
+  md5: 6d680daeeba7981e06a5982d6f79a852
   depends:
   - python >=3.12,<3.13.0a0
   - python_abi 3.12.* *_cp312
@@ -415,8 +416,8 @@ packages:
   license_family: APACHE
   purls:
   - pkg:pypi/coverage?source=hash-mapping
-  size: 387590
-  timestamp: 1728528255329
+  size: 387904
+  timestamp: 1729007342447
 - kind: conda
   name: cycler
   version: 0.12.1
@@ -1950,21 +1951,22 @@ packages:
   timestamp: 1723565697203
 - kind: conda
   name: pyparsing
-  version: 3.1.4
-  build: pyhd8ed1ab_0
+  version: 3.2.0
+  build: pyhd8ed1ab_1
+  build_number: 1
   subdir: noarch
   noarch: python
-  url: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.1.4-pyhd8ed1ab_0.conda
-  sha256: 8714a83f1aeac278b3eb33c7cb880c95c9a5924e7a5feeb9e87e7d0837afa085
-  md5: 4d91352a50949d049cf9714c8563d433
+  url: https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.2.0-pyhd8ed1ab_1.conda
+  sha256: b846e3965cd106438cf0b9dc0de8d519670ac065f822a7d66862e9423e0229cb
+  md5: 035c17fbf099f50ff60bf2eb303b0a83
   depends:
-  - python >=3.6
+  - python >=3.9
   license: MIT
   license_family: MIT
   purls:
   - pkg:pypi/pyparsing?source=hash-mapping
-  size: 90129
-  timestamp: 1724616224956
+  size: 92444
+  timestamp: 1728880549923
 - kind: conda
   name: pysocks
   version: 1.7.1
@@ -2132,12 +2134,12 @@ packages:
   timestamp: 1723823139725
 - kind: conda
   name: pytorch
-  version: 2.4.1
+  version: 2.5.0
   build: py3.12_cpu_0
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.4.1-py3.12_cpu_0.tar.bz2
-  sha256: cbecd3cacf24d813945a3d3d28a0fc536a76686dfdd428c1a25408793bc46952
-  md5: 41956861226f3906b1a12a8fb10efd39
+  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.0-py3.12_cpu_0.tar.bz2
+  sha256: ed9c0fddea42be0d874eec8c7f5a53235bf1f649cf26f335d73656e6a3165bcc
+  md5: a59b15e3d93e3e163d6124078de7e562
   depends:
   - blas * mkl
   - filelock
@@ -2157,8 +2159,8 @@ packages:
   license_family: BSD
   purls:
   - pkg:pypi/torch?source=hash-mapping
-  size: 153842555
-  timestamp: 1724791161108
+  size: 158028916
+  timestamp: 1728933876056
 - kind: conda
   name: pytorch-mutex
   version: '1.0'
@@ -2476,16 +2478,16 @@ packages:
   timestamp: 1727974767524
 - kind: conda
   name: torchaudio
-  version: 2.4.1
+  version: 2.5.0
   build: py312_cpu
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.4.1-py312_cpu.tar.bz2
-  sha256: 4ce52d4f45169a40d8fa147fa423a21dec968a1db7b55b5c598e455936e138dd
-  md5: 5dc3e3e50001abde90db47865b90a5cc
+  url: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.5.0-py312_cpu.tar.bz2
+  sha256: 844b2221f135aab4a224e53b601bfcafaf92acb215f4fcccca05c3041e6e40bf
+  md5: 3c8ee3ce1039c7453e625d1148175603
   depends:
   - numpy
   - python >=3.12,<3.13.0a0
-  - pytorch 2.4.1
+  - pytorch 2.5.0
   - pytorch-mutex 1.0 cpu
   - vc >=14.2,<15.0a0
   - vs2015_runtime >=14.29.30133,<15.0a0
@@ -2494,8 +2496,8 @@ packages:
   license: BSD
   purls:
   - pkg:pypi/torchaudio?source=hash-mapping
-  size: 6168011
-  timestamp: 1724849148811
+  size: 6184770
+  timestamp: 1728951021311
 - kind: pypi
   name: tqdm
   version: 4.66.5
