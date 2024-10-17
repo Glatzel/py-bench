@@ -1,6 +1,8 @@
-name: Pull Requests Check
+name: CI
 
 on:
+  push:
+    branches: main
   pull_request:
     types:
       - opened
@@ -38,7 +40,8 @@ jobs:
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/arithmetic
       cov: true
 
-  check-result:
+  check-result-pr:
+    if: ${{ github.event_name == 'pull_request' }}
     needs: [check-title,ruff-lint,test]
     runs-on: ubuntu-latest
     steps:
