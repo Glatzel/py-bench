@@ -8,6 +8,10 @@ on:
       - synchronize
       - ready_for_review
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check-title:
     uses: Glatzel/py-template/.github/workflows/lint-pr.yml@main
@@ -31,4 +35,3 @@ jobs:
   check-result:
     needs: [check-title,ruff-lint,test]
     uses: Glatzel/py-template/.github/workflows/result.yml@main
-  
