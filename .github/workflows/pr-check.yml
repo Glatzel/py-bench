@@ -1,6 +1,6 @@
-name: test
+name: Pull Requests Check
+
 on:
-  workflow_dispatch:
   pull_request:
     types:
       - opened
@@ -8,16 +8,13 @@ on:
       - synchronize
       - ready_for_review
 
-permissions:
-  contents: read
-  actions: read
-  checks: write
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
+  check-title:
+    uses: Glatzel/py-template/.github/workflows/lint-pr.yml@main
+
+  ruff-lint:
+    uses: Glatzel/py-template/.github/workflows/lint.yml@main
+  
   test:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
@@ -30,3 +27,8 @@ jobs:
       update_submodule: true
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
       cov: true
+
+  check-result:
+    needs: [check-title,ruff-lint,test]
+    uses: Glatzel/py-template/.github/workflows/result.yml@main
+  
