@@ -5,7 +5,8 @@ import librosa
 import numpy as np
 import soundfile
 import torch
-import torchaudio
+import torchaudio 
+
 
 dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
 group = "Amplitude to DB: "
@@ -29,7 +30,7 @@ def init_amplitude():
         win_len = 4096
         hop_len = 2048
 
-    wave, _ = soundfile.read(file, dtype="float32")
+    wave, _ = soundfile.read(file, dtype="float32"
     if len(wave.shape) > 1:
         wave = wave.mean(1)
     transform = torchaudio.transforms.Spectrogram(n_fft=n_fft, hop_length=hop_len, win_length=win_len)
