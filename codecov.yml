@@ -1,10 +1,13 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 100%
+    patch:
+      default:
+        target: 100%
 component_management:
   default_rules:
-    statuses:
-      - type: project
-        target: 100%
-      - type: patch
-        target: 100%
   individual_components:
     - component_id: arithmetic
       name: arithmetic
