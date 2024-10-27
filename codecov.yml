@@ -1,5 +1,17 @@
 coverage:
-  status:
-    project:
-      default:
+  default_rules:
+    carryforward: true
+    statuses:
+      - type: project
         target: 100%
+      - type: patch
+        target: 100%
+  individual_flags:
+    - name: arithmetic
+      carryforward: true
+      paths: 
+      - src/arithmetic
+    - name: audio
+      carryforward: true
+      paths: 
+      - src/audio
