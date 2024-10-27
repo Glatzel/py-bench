@@ -1,6 +1,6 @@
 [project]
 name = "glatzel-bench"
-channels = ["conda-forge", "pytorch"]
+channels = ["conda-forge", "pytorch", "nvidia"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
 [dependencies]
@@ -8,7 +8,7 @@ python = "*"
 numpy = "1.26.*"
 pytest = "*"
 pytest-benchmark = "*"
-pytest-cov="*"
+pytest-cov = "*"
 
 [feature.audio.dependencies]
 librosa = "*"
@@ -33,13 +33,13 @@ scipy = "*"
 ssqueezepy = "*"
 [feature.arithmetic-cpu.dependencies]
 pytorch = { version = "*", build = "*cpu*" }
-# [feature.arithmetic-gpu.system-requirements]
-# cuda = "12.4"
-# [feature.arithmetic-gpu.dependencies]
-# pytorch = { version = "*", build = "*cuda*" }
-# pytorch-cuda = "12.4"
+[feature.arithmetic-gpu.system-requirements]
+cuda = "12.4"
+[feature.arithmetic-gpu.dependencies]
+pytorch = { version = "*", build = "*cuda*" }
+pytorch-cuda = "12.4"
 
 [environments]
-audio=["audio"]
-arithmetic-cpu = ["arithmetic","arithmetic-cpu"]
-# arithmetic-gpu=["arithmetic","arithmetic-gpu"]
+audio = ["audio"]
+arithmetic-cpu = ["arithmetic", "arithmetic-cpu"]
+arithmetic-gpu = ["arithmetic", "arithmetic-gpu"]
