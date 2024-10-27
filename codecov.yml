@@ -3,3 +3,24 @@ coverage:
     project:
       default:
         target: 100%
+    patch:
+      default:
+        target: 100%
+        
+comment:
+  behavior: new
+  
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: 100%
+  individual_components:
+    - component_id: arithmetic
+      name: arithmetic
+      paths: 
+        - src/arithmetic/**
+    - component_id: audio
+      name: audio
+      paths: 
+        - src/audio/**
