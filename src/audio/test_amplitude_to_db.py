@@ -7,7 +7,7 @@ import soundfile
 import torch
 import torchaudio
 
-dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
+dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 group = "Amplitude to DB: "
 top_db = 100.0
 

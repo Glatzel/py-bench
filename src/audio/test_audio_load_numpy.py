@@ -7,7 +7,7 @@ import pytest
 import soundfile
 from scipy.io import wavfile
 
-dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
+dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 group = "Load to numpy: "
 

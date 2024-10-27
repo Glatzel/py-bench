@@ -16,7 +16,7 @@ group = "STFT: "
 n_fft = 1024
 win_len = 1024
 hop_len = 512
-dataset_dir = Path(__file__).parents[1] / "external/dataset-audio"
+dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 
 def dataset():
