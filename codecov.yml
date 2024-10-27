@@ -6,6 +6,8 @@ coverage:
     patch:
       default:
         target: 100%
+comment:
+  behavior: new
 component_management:
   default_rules:
   individual_components:
