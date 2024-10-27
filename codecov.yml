@@ -10,8 +10,8 @@ coverage:
     - name: arithmetic
       carryforward: true
       paths: 
-      - src/arithmetic
+        - src/arithmetic
     - name: audio
       carryforward: true
       paths: 
-      - src/audio
+        - src/audio
