@@ -8,7 +8,7 @@ import torch
 def data_figures():
     if os.getenv("CI"):
         return [0]
-    else:  # pragma: nocover
+    else:  
         return range(9)
 
 
@@ -55,7 +55,7 @@ def test_torch1(benchmark, sample_data):
         foo,
         torch.from_numpy(sample_data[1]),
         torch.from_numpy(sample_data[2]),
-        torch.from_numpy(sample_data[5]),
+        torch.from_numpy(sample_data[3]),
     )
 
 
