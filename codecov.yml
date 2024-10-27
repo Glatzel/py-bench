@@ -1,17 +1,16 @@
-coverage:
+component_management:
   default_rules:
-    carryforward: true
     statuses:
       - type: project
         target: 100%
       - type: patch
         target: 100%
-  individual_flags:
-    - name: arithmetic
-      carryforward: true
+  individual_components:
+    - component_id: arithmetic
+      name: arithmetic
       paths: 
-        - src/arithmetic
-    - name: audio
-      carryforward: true
+        - src/arithmetic/**
+    - component_id: audio
+      name: audio
       paths: 
-        - src/audio
+        - src/audio/**
