@@ -8,7 +8,7 @@ import torch
 def data_figures():
     if os.getenv("CI"):
         return [0]
-    else:  # pragma: nocover
+    else:  
         return range(9)
 
 
