@@ -55,7 +55,7 @@ def test_torch1(benchmark, sample_data):
         foo,
         torch.from_numpy(sample_data[1]),
         torch.from_numpy(sample_data[2]),
-        torch.from_numpy(sample_data[3]),
+        torch.from_numpy(sample_data[5]),
     )
 
 
