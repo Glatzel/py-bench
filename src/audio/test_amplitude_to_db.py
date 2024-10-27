@@ -10,7 +10,8 @@ import torchaudio
 dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 group = "Amplitude to DB: "
 top_db = 100.0
-
+def foobar():
+    print(123)
 
 def init_amplitude():
     n_fft: int
