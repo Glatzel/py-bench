@@ -29,7 +29,7 @@ jobs:
   ruff-lint:
     uses: Glatzel/py-template/.github/workflows/lint.yml@main
   
-  pytest:
+  pytest-audio:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
       matrix:
@@ -37,7 +37,28 @@ jobs:
     with: 
       name: test
       machine: ${{matrix.os}}
+      pixi_python_env: audio
+      test_path: ./src/audio
+      update_submodule: true
+      test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
+      cov: true
+      codecov: true
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      
+  pytest-arithmetic:
+    uses: Glatzel/py-template/.github/workflows/pytest.yml@main
+    strategy:
+      matrix:
+        os: [windows-latest]
+    with: 
+      name: test
+      machine: ${{matrix.os}}
+      pixi_python_env: arithmetic-cpu
       test_path: ./src
       update_submodule: true
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/arithmetic
       cov: true
+      codecov: true
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
