@@ -44,5 +44,5 @@ pytorch-cuda = "12.4"
 
 [environments]
 audio=["audio"]
-arithmetic-cpu = ["cpu"]
-arithmetic-gpu=["gpu"]
+arithmetic-cpu = ["arithmetic-cpu"]
+arithmetic-gpu=["arithmetic-gpu"]
