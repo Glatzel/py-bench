@@ -5,16 +5,17 @@ platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
 [dependencies]
 python = "*"
+numpy = "1.26.*"
+pytest = "*"
+pytest-benchmark = "*"
+pytest-cov="*"
+
 [feature.audio.dependencies]
 librosa = "*"
 numba = ">=0.60.0"
-numpy = "1.26.*"
 pyfftw = "*"
 pygal = "*"
 pysoundfile = "*"
-pytest = "*"
-pytest-benchmark = "*"
-pytest-cov = "*"
 pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
@@ -25,12 +26,8 @@ ssqueezepy = "*"
 [feature.arithmetic.dependencies]
 numba = ">=0.60.0"
 numexpr = "*"
-numpy = "1.26.*"
 pyfftw = "*"
 pygal = "*"
-pytest = "*"
-pytest-benchmark = "*"
-pytest-cov="*"
 scipy = "*"
 [feature.arithmetic.pypi-dependencies]
 ssqueezepy = "*"
