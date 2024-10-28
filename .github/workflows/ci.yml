@@ -21,15 +21,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ruff-lint:
-    uses: Glatzel/py-template/.github/workflows/lint.yml@main
-  
   pytest-audio:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
       matrix:
         os: [windows-latest]
-    with: 
+    with:
       name: test
       machine: ${{matrix.os}}
       pixi_python_env: audio
@@ -38,13 +35,13 @@ jobs:
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      
+
   pytest-arithmetic:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
       matrix:
         os: [windows-latest]
-    with: 
+    with:
       name: test
       machine: ${{matrix.os}}
       pixi_python_env: arithmetic-cpu

@@ -6,10 +6,10 @@ coverage:
     patch:
       default:
         target: 100%
-        
+
 comment:
   behavior: new
-  
+
 component_management:
   default_rules:
     statuses:
@@ -18,9 +18,9 @@ component_management:
   individual_components:
     - component_id: arithmetic
       name: arithmetic
-      paths: 
+      paths:
         - src/arithmetic/**
     - component_id: audio
       name: audio
-      paths: 
+      paths:
         - src/audio/**
