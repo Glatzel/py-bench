@@ -20,10 +20,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-jobs:
-  ruff-lint:
-    uses: Glatzel/py-template/.github/workflows/lint.yml@main
-  
+jobs: 
   pytest-audio:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
