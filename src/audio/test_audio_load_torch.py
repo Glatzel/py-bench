@@ -9,7 +9,7 @@ import torch
 import torchaudio
 from scipy.io import wavfile
 
-dataset_dir = Path(__file__).parents[2  ] / "external/dataset-audio"
+dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 group = "Load to torch: "
 
@@ -20,7 +20,7 @@ def dataset():
             dataset_dir / "single channel/ff-16b-1c-44100hz.wav",
             dataset_dir / "two channel/ff-16b-2c-44100hz.wav",
         ]
-    else: 
+    else:
         data = list((dataset_dir / "BeeMoved").rglob("*.flac"))
         data += list((dataset_dir / "two channel").rglob("*.flac"))
         data += list((dataset_dir / "two channel").rglob("*.wav"))
