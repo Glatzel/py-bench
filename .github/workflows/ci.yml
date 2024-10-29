@@ -21,6 +21,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  ruff-lint:
+    uses: Glatzel/py-template/.github/workflows/lint.yml@main
+    
   pytest-audio:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
