@@ -38,7 +38,7 @@ jobs:
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-   
+
   pytest-arithmetic:
     uses: Glatzel/py-template/.github/workflows/pytest.yml@main
     strategy:
@@ -55,4 +55,4 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 
-      
+
