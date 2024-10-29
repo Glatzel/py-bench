@@ -181,7 +181,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pytest-cov-5.0.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.10.15-hfaddaf0_2_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python_abi-3.10-5_cp310.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.0-py3.10_cuda12.4_cudnn9_0.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.1-py3.10_cuda12.4_cudnn9_0.tar.bz2
       - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-cuda-12.4-h3fd98bf_7.tar.bz2
       - conda: https://conda.anaconda.org/pytorch/noarch/pytorch-mutex-1.0-cuda.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyyaml-6.0.2-py310ha8f682b_1.conda
@@ -313,7 +313,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/python-3.12.7-hce54a09_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/python_abi-3.12-5_cp312.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.0-py3.12_cpu_0.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.1-py3.12_cpu_0.tar.bz2
       - conda: https://conda.anaconda.org/pytorch/noarch/pytorch-mutex-1.0-cpu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/pyyaml-6.0.2-py312h4389bb4_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/qhull-2020.2-hc790b64_5.conda
@@ -330,7 +330,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h5226925_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/toml-0.10.2-pyhd8ed1ab_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.0.2-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.5.0-py312_cpu.tar.bz2
+      - conda: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.5.1-py312_cpu.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.12.2-pyha770c72_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2024b-hc8b5060_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.22621.0-h57928b3_1.conda
@@ -351,7 +351,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/89/76/9cc485c575e771daeb84586b294424aa6b102297a7727071dc753dae0daa/audiofile-1.5.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/0d/d074c95e9cd5bd9a39d2851c4d96acd09a747de00f3af502c05f9a04580d/audmath-1.4.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/5b/c8/34bcdc9dd717cd7f35738dbc95dbcb792464f8da1ddd29a481153c430f68/ssqueezepy-0.6.5-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/48/5d/acf5905c36149bbaec41ccf7f2b68814647347b72075ac0b1fe3022fdc73/tqdm-4.66.5-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/41/73/02342de9c2d20922115f787e101527b831c0cffd2105c946c4a4826bcfd4/tqdm-4.66.6-py3-none-any.whl
   default:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
@@ -4176,12 +4176,12 @@ packages:
   timestamp: 1711404381248
 - kind: conda
   name: pytorch
-  version: 2.5.0
+  version: 2.5.1
   build: py3.10_cuda12.4_cudnn9_0
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.0-py3.10_cuda12.4_cudnn9_0.tar.bz2
-  sha256: a787c0e11fe55aaee30bf972006e138add72c28090a4f61b79058adc2b018525
-  md5: 9f62381484498644913ee032998ca97d
+  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.1-py3.10_cuda12.4_cudnn9_0.tar.bz2
+  sha256: f910429f84656f046675702caedc43aae891356960e9dd7d624c9a687c5c298b
+  md5: 00fd81825d2f013dcde705a84b95b0f8
   depends:
   - blas * mkl
   - filelock
@@ -4202,16 +4202,16 @@ packages:
   license_family: BSD
   purls:
   - pkg:pypi/torch?source=hash-mapping
-  size: 1293609380
-  timestamp: 1728940472764
+  size: 1294376114
+  timestamp: 1729658382876
 - kind: conda
   name: pytorch
-  version: 2.5.0
+  version: 2.5.1
   build: py3.12_cpu_0
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.0-py3.12_cpu_0.tar.bz2
-  sha256: ed9c0fddea42be0d874eec8c7f5a53235bf1f649cf26f335d73656e6a3165bcc
-  md5: a59b15e3d93e3e163d6124078de7e562
+  url: https://conda.anaconda.org/pytorch/win-64/pytorch-2.5.1-py3.12_cpu_0.tar.bz2
+  sha256: f0c6272530196141aa1a37b643ee3857991c9281cc3c4000951edf2831680995
+  md5: e4687f11ff5f0884d8749b3405a4856e
   depends:
   - blas * mkl
   - filelock
@@ -4231,8 +4231,8 @@ packages:
   license_family: BSD
   purls:
   - pkg:pypi/torch?source=hash-mapping
-  size: 158028916
-  timestamp: 1728933876056
+  size: 157962030
+  timestamp: 1729652038593
 - kind: conda
   name: pytorch-cuda
   version: '12.4'
@@ -4729,16 +4729,16 @@ packages:
   timestamp: 1727974767524
 - kind: conda
   name: torchaudio
-  version: 2.5.0
+  version: 2.5.1
   build: py312_cpu
   subdir: win-64
-  url: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.5.0-py312_cpu.tar.bz2
-  sha256: 844b2221f135aab4a224e53b601bfcafaf92acb215f4fcccca05c3041e6e40bf
-  md5: 3c8ee3ce1039c7453e625d1148175603
+  url: https://conda.anaconda.org/pytorch/win-64/torchaudio-2.5.1-py312_cpu.tar.bz2
+  sha256: 46546b376817bc0de15d7363cc3d1a1371ff88d3ab9173411f6eb1bedcf77980
+  md5: ce04adb2a921db0baae051fe120a7cb6
   depends:
   - numpy
   - python >=3.12,<3.13.0a0
-  - pytorch 2.5.0
+  - pytorch 2.5.1
   - pytorch-mutex 1.0 cpu
   - vc >=14.2,<15.0a0
   - vs2015_runtime >=14.29.30133,<15.0a0
@@ -4747,13 +4747,13 @@ packages:
   license: BSD
   purls:
   - pkg:pypi/torchaudio?source=hash-mapping
-  size: 6184770
-  timestamp: 1728951021311
+  size: 6184069
+  timestamp: 1729686105634
 - kind: pypi
   name: tqdm
-  version: 4.66.5
-  url: https://files.pythonhosted.org/packages/48/5d/acf5905c36149bbaec41ccf7f2b68814647347b72075ac0b1fe3022fdc73/tqdm-4.66.5-py3-none-any.whl
-  sha256: 90279a3770753eafc9194a0364852159802111925aa30eb3f9d85b0e805ac7cd
+  version: 4.66.6
+  url: https://files.pythonhosted.org/packages/41/73/02342de9c2d20922115f787e101527b831c0cffd2105c946c4a4826bcfd4/tqdm-4.66.6-py3-none-any.whl
+  sha256: 223e8b5359c2efc4b30555531f09e9f2f3589bcd7fdd389271191031b49b7a63
   requires_dist:
   - colorama ; platform_system == 'Windows'
   - pytest>=6 ; extra == 'dev'
