@@ -22,10 +22,10 @@ concurrency:
 
 jobs:
   ruff-lint:
-    uses: Glatzel/py-template/.github/workflows/lint.yml@main
+    uses: Glatzel/template/.github/workflows/lint.yml@main
 
   pytest-audio:
-    uses: Glatzel/py-template/.github/workflows/pytest.yml@main
+    uses: Glatzel/template/.github/workflows/pytest.yml@main
     strategy:
       matrix:
         os: [windows-latest]
@@ -40,7 +40,7 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   pytest-arithmetic:
-    uses: Glatzel/py-template/.github/workflows/pytest.yml@main
+    uses: Glatzel/template/.github/workflows/pytest.yml@main
     strategy:
       matrix:
         os: [windows-latest]
