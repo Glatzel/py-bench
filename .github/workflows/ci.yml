@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   ruff-lint:
-    uses: Glatzel/template/.github/workflows/lint.yml@main
+    uses: Glatzel/template/.github/workflows/ruff.yml@main
 
   pytest-audio:
     uses: Glatzel/template/.github/workflows/pytest.yml@main
