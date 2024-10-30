@@ -1,5 +1,5 @@
 ci:
-  autofix_prs: false
+  autofix_prs: true
   autoupdate_commit_msg: "ci(pre-commit): pre-commit autoupdate"
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
