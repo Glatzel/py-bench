@@ -29,6 +29,7 @@ jobs:
     with:
       name: test
       machine: windows-latest
+      cache_write: ${{ github.event_name == 'push'}}
       pixi_python_env: audio
       test_path: ./src/audio
       update_submodule: true
@@ -41,6 +42,7 @@ jobs:
     with:
       name: test
       machine: windows-latest
+      cache_write: ${{ github.event_name == 'push'}}
       pixi_python_env: arithmetic-cpu
       test_path: ./src/arithmetic
       update_submodule: true
