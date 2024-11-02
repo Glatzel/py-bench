@@ -39,12 +39,9 @@ jobs:
 
   pytest-arithmetic:
     uses: Glatzel/template/.github/workflows/pytest.yml@main
-    strategy:
-      matrix:
-        os: [windows-latest]
     with:
       name: test
-      machine: ${{matrix.os}}
+      machine: windows-latest
       cache_write: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
       pixi_python_env: arithmetic-cpu
       test_path: ./src/arithmetic
