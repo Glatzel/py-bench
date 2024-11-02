@@ -10,7 +10,7 @@ def data_figures():
     if os.getenv("CI"):
         return [0]
     else:  # pragma: nocover
-        return range(6) 
+        return range(6)
 
 
 @pytest.fixture(params=data_figures(), scope="module")
@@ -19,7 +19,7 @@ def sample_coords(request):
 
 
 def test_python(benchmark, sample_coords):
-    def foo(x1, y1,   h1):
+    def foo(x1, y1, h1):
         q = h1 / 6378_137
         factor = q / (1 + q)
         x1 = x1 - factor * (x1 - 500000)
