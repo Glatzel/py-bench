@@ -18,14 +18,13 @@ def sample_coords(request):
     return 10**request.param, 2821940.796, 469704.6693, 400.0
 
 
-def foo(x1, y1, h1):
-    q = h1 / 6378_137
-    factor = q / (1 + q)
-    x1 = x1 - factor * (x1 - 500000)
-    y1 = y1 - factor * (y1 - 0)
-
-
 def test_python(benchmark, sample_coords):
+    def foo(x1, y1, h1):
+        q = h1 / 6378_137
+        factor = q / (1 + q)
+        x1 = x1 - factor * (x1 - 500000)
+        y1 = y1 - factor * (y1 - 0)
+
     def loop(n, x, y, h):
         for _ in range(n):
             foo(x, y, h)
