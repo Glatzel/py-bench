@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cache:
+  cache-pixi:
     if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
     runs-on: windows-latest
     strategy:
@@ -39,6 +39,8 @@ jobs:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
 
   pytest-audio:
+    needs: cache-pixi
+    if: always()
     uses: Glatzel/template/.github/workflows/pytest.yml@main
     with:
       name: test
@@ -51,6 +53,8 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   pytest-arithmetic:
+    needs: cache-pixi
+    if: always()
     uses: Glatzel/template/.github/workflows/pytest.yml@main
     with:
       name: test
