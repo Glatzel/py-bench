@@ -7,7 +7,7 @@ group = "datum compense loop "
 
 
 def data_figures():
-    if os.getenv("CI"):
+    if os.getenv(   "CI"):
         return [0]
     else:  # pragma: nocover
         return range(6)
