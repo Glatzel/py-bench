@@ -1,0 +1,5 @@
+[run]
+source_pkgs =
+    glatzel
+omit =
+    .pixi/**
