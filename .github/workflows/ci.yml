@@ -35,7 +35,7 @@ jobs:
             audio
             arithmetic-cpu
           cache: false
-          cache-write: false
+          cache-write: true
 
   ruff-lint:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
