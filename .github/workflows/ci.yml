@@ -31,8 +31,8 @@ jobs:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
 
   pytest-audio:
-    needs: cache-pixi
-    if: always()
+    needs: cache-pixi  
+    if: always()  
     uses: Glatzel/template/.github/workflows/pytest.yml@main
     with:
       name: test
