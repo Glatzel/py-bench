@@ -44,14 +44,14 @@ jobs:
       PIXI_FROZEN: true
     runs-on: windows-latest
     steps:
-      # setup
       - uses: actions/checkout@v4
 
-      - name: Update Submodule
+      - name: Update submodule
         if: matrix.submodule
         run: git submodule update --init --recursive
       
-      - uses: actions/cache/restore@v4
+      - name: Restore pixi cache
+        uses: actions/cache/restore@v4
         with:
           path: path/to/dependencies
           key: pixi-${{ runner.os }}-${{ hashFiles('**/pixi.lock') }}
@@ -62,7 +62,7 @@ jobs:
         with:
           run-install: false
 
-      - name: pytest
+      - name: Pytest
         if: success()
         run: pixi run -e ${{matrix.pixi_python_env}} pytest "${{matrix.test_path}}" --junitxml=junit.xml --cov --cov-report=xml
         continue-on-error: true
