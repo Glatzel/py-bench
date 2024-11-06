@@ -31,7 +31,9 @@ jobs:
         uses: prefix-dev/setup-pixi@v0.8.1
         with:
           frozen: true
-          environments: ${{inputs.pixi_python_env}}
+          environments: >-
+            audio
+            arithmetic
           cache: false
           cache-write: false
 
