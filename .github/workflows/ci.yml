@@ -23,7 +23,7 @@ concurrency:
 jobs:
   cache-pixi:
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
-    with: 
+    with:
       machine: windows-latest
       install_cmd: pixi install -e audio -e arithmetic-cpu
   ruff-lint:
