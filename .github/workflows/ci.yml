@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   cache-pixi:
-    if: ${{github.event_name == 'push'}}
+    if: ${{github.event_name== 'push'}}
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
     with:
       machine: windows-latest
@@ -31,32 +31,23 @@ jobs:
   ruff-lint:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
 
-  pytest-audio:
-    needs: cache-pixi
-    if: always()
+  pytest:
+    strategy:
+      matrix:
+        include:
+          - submodule: true
+            pixi_python_env: audio
+            test_path: ./src/audio
+          - submodule: false
+            pixi_python_env: arithmetic-cpu
+            test_path: ./src/arithmetic
     uses: Glatzel/template/.github/workflows/pytest.yml@main
     with:
       name: test
       machine: windows-latest
-      cache_write: ${{ github.event_name == 'push'}}
-      pixi_python_env: audio
-      test_path: ./src/audio
-      update_submodule: true
-      test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
-    secrets:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-  pytest-arithmetic:
-    needs: cache-pixi
-    if: always()
-    uses: Glatzel/template/.github/workflows/pytest.yml@main
-    with:
-      name: test
-      machine: windows-latest
-      cache_write: ${{ github.event_name == 'push'}}
-      pixi_python_env: arithmetic-cpu
-      test_path: ./src/arithmetic
-      update_submodule: true
-      test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/arithmetic
+      pixi_python_env: ${{matrix.pixi_python_env}}
+      test_path: ${{matrix.test_path}}
+      update_submodule: ${{matrix.submodule}}
+      test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
