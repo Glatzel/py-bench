@@ -32,6 +32,8 @@ jobs:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
 
   pytest:
+    needs: cache-pixi
+    if: ${{!cancelled()}}
     strategy:
       matrix:
         include:
