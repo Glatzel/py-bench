@@ -50,5 +50,6 @@ jobs:
       test_path: ./src/arithmetic
       update_submodule: true
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/arithmetic
-    secrets:
+    secrets: 
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+ 
