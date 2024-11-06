@@ -33,7 +33,7 @@ jobs:
           frozen: true
           environments: >-
             audio
-            arithmetic
+            arithmetic-cpu
           cache: false
           cache-write: false
 
