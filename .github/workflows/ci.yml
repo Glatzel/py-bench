@@ -22,6 +22,7 @@ concurrency:
 
 jobs:
   cache-pixi:
+    if: ${{github.event_name == 'push'}}
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
     with:
       machine: windows-latest
