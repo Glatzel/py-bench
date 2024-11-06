@@ -22,50 +22,55 @@ concurrency:
 
 jobs:
   cache-pixi:
-    # if: ${{github.event_name == 'push'}}
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up pixi
-        uses: prefix-dev/setup-pixi@v0.8.1
-        with:
-          frozen: true
-          environments: >-
-            audio
-            arithmetic-cpu
-          cache: false
-          cache-write: true
+    uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
+    with:
+      machine: windows-latest
+      install_cmd: pixi install -e audio -e arithmetic-cpu
 
   ruff-lint:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
 
-  pytest-audio:
-    needs: cache-pixi
-    if: always()
-    uses: Glatzel/template/.github/workflows/pytest.yml@main
-    with:
-      name: test
-      machine: windows-latest
-      cache_write: ${{ github.event_name == 'push'}}
-      pixi_python_env: audio
-      test_path: ./src/audio
-      update_submodule: true
-      test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/audio
-    secrets:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  pytest:
+    strategy:
+      matrix:
+        include:
+          - submodule: true
+            pixi_python_env: audio
+            test_path: ./src/audio
+          - submodule: false
+            pixi_python_env: arithmetic-cpu
+            test_path: ./src/arithmetic
+    env:
+      PIXI_FROZEN: true
+    runs-on: windows-latest
+    steps:
+      # setup
+      - uses: actions/checkout@v4
 
-  pytest-arithmetic:
-    needs: cache-pixi
-    if: always()
-    uses: Glatzel/template/.github/workflows/pytest.yml@main
-    with:
-      name: test
-      machine: windows-latest
-      cache_write: ${{ github.event_name == 'push'}}
-      pixi_python_env: arithmetic-cpu
-      test_path: ./src/arithmetic
-      update_submodule: true
-      test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram/arithmetic
-    secrets:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Update Submodule
+        if: matrix.submodule
+        run: git submodule update --init --recursive
+
+      - name: Set up pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          run-install: false
+
+      - name: pytest
+        if: success()
+        run: pixi run -e ${{matrix.pixi_python_env}} pytest "${{matrix.test_path}}" --junitxml=junit.xml --cov --cov-report=xml
+        continue-on-error: true
+
+      - name: Upload cov results to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        uses: codecov/test-results-action@v1
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
