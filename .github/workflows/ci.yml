@@ -49,7 +49,7 @@ jobs:
       - name: Update submodule
         if: matrix.submodule
         run: git submodule update --init --recursive
-      
+
       - name: Restore pixi cache
         uses: actions/cache/restore@v4
         with:
