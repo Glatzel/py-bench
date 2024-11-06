@@ -50,6 +50,12 @@ jobs:
       - name: Update Submodule
         if: matrix.submodule
         run: git submodule update --init --recursive
+      
+      - uses: actions/cache/restore@v4
+        with:
+          path: path/to/dependencies
+          key: pixi-${{ runner.os }}-${{ hashFiles('**/pixi.lock') }}
+          restore-keys: pixi-${{ runner.os }}
 
       - name: Set up pixi
         uses: prefix-dev/setup-pixi@v0.8.1
