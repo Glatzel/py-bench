@@ -26,7 +26,7 @@ jobs:
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
     strategy:
       matrix:
-        pixi_env: [audio,arithmetic-cpu]
+        pixi_env: [audio, arithmetic-cpu]
     with:
       machine: windows-latest
       pixi_env: ${{matrix.pixi_env}}
