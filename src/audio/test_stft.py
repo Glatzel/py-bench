@@ -33,7 +33,7 @@ def dataset():
 @pytest.fixture(params=dataset(), scope="module")
 def audio(request):
     if os.getenv("CI"):
-        return request.param
+        return "ci", request.param
     else:  # pragma: nocover
         file = request.param
         wave, _ = soundfile.read(file, dtype="float32")
