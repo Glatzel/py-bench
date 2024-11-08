@@ -29,7 +29,7 @@ jobs:
         pixi_env: [audio, arithmetic-cpu]
     with:
       machine: windows-latest
-      pixi_env: ${{matrix.pixi_env}}
+      pixi_env: ${{ matrix.pixi_env }}
 
   ruff-lint:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
