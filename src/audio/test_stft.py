@@ -16,7 +16,7 @@ group = "STFT: "
 n_fft = 1024
 win_len = 1024
 hop_len = 512
-rng = np.random.default_rng()
+rng = np.random.default_rng()a
 dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 
@@ -34,7 +34,7 @@ def dataset():
 def audio(request):
     if os.getenv("CI"):
         return request.param
-    else:
+    else:  # pragma: nocover
         file = request.param
         wave, _ = soundfile.read(file, dtype="float32")
         if len(wave.shape) > 1:
