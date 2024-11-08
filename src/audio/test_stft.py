@@ -22,7 +22,7 @@ dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 def dataset():
     if os.getenv("CI"):
-        return [rng.random([50000],np.float32)]
+        return [rng.random([50000], np.float32)]
     else:  # pragma: nocover
         return [
             dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
