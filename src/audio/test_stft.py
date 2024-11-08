@@ -32,11 +32,14 @@ def dataset():
 
 @pytest.fixture(params=dataset(), scope="module")
 def audio(request):
-    file = request.param
-    wave, _ = soundfile.read(file, dtype="float32")
-    if len(wave.shape) > 1:
-        wave = wave.mean(1)
-    return str(file.name), wave
+    if os.getenv("CI"):
+        return request.param
+    else:
+        file = request.param
+        wave, _ = soundfile.read(file, dtype="float32")
+        if len(wave.shape) > 1:
+            wave = wave.mean(1)
+        return str(file.name), wave
 
 
 def test_scipy(benchmark, audio):
