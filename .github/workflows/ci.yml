@@ -50,7 +50,7 @@ jobs:
     with:
       name: test
       machine: windows-latest
-      pixi_python_env: ${{matrix.pixi_python_env}}
+      pixi_python_env: ${{ matrix.pixi_python_env }}
       test_path: ${{matrix.test_path}}
       update_submodule: ${{matrix.submodule}}
       test_args: --benchmark-max-time=0.00005 --benchmark-min-rounds=1 --benchmark-histogram=histogram
