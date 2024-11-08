@@ -16,12 +16,13 @@ group = "STFT: "
 n_fft = 1024
 win_len = 1024
 hop_len = 512
+rng = np.random.default_rng()
 dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 
 def dataset():
     if os.getenv("CI"):
-        return [dataset_dir / "two channel/ff-16b-2c-44100hz.wav"]
+        return rng.random([50000],np.float32)
     else:  # pragma: nocover
         return [
             dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
