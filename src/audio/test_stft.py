@@ -16,7 +16,7 @@ group = "STFT: "
 n_fft = 1024
 win_len = 1024
 hop_len = 512
-rng = np.random.default_rng()a
+rng = np.random.default_rng()
 dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 
