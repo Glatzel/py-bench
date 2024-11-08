@@ -24,9 +24,12 @@ jobs:
   cache-pixi:
     if: ${{github.event_name== 'push'}}
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
+    strategy:
+      matrix:
+        pixi_env: [audio,arithmetic-cpu]
     with:
       machine: windows-latest
-      install_cmd: pixi install -e audio -e arithmetic-cpu
+      pixi_env: ${{matrix.pixi_env}}
 
   ruff-lint:
     uses: Glatzel/template/.github/workflows/ruff.yml@main
