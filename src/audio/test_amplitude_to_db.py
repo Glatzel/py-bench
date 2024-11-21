@@ -5,7 +5,6 @@ import librosa
 import numexpr
 import numpy as np
 import pytest
-import soundfile
 import torch
 import torchaudio
 
@@ -69,4 +68,4 @@ def test_torch(benchmark, magnitude):
 
     benchmark.group = group + f"10^{magnitude[0]}"
     benchmark.name = "torch"
-    benchmark(foo, torch.tensor(np.abs(magnitude[1])**2,dtype=torch.float32))
+    benchmark(foo, torch.tensor(np.abs(magnitude[1]) ** 2, dtype=torch.float32))
