@@ -7,7 +7,6 @@ import pyfftw
 import pytest
 import scipy
 import scipy.signal
-import soundfile
 import ssqueezepy
 import torch
 import torchaudio
@@ -19,41 +18,36 @@ hop_len = 512
 dataset_dir = Path(__file__).parents[2] / "external/dataset-audio"
 
 
-def dataset():
+def data_figures():
     if os.getenv("CI"):
-        return [dataset_dir / "two channel/ff-16b-2c-44100hz.wav"]
+        return [5]
     else:  # pragma: nocover
-        return [
-            dataset_dir / "BeeMoved/Sample_BeeMoved_96kHz24bit.flac",
-            dataset_dir / "../Vision of Her/24-88.flac",
-        ]
+        return range(5, 9)
 
 
-@pytest.fixture(params=dataset(), scope="module")
+@pytest.fixture(params=data_figures(), scope="module")
 def audio(request):
-    file = request.param
-    wave, _ = soundfile.read(file, dtype="float32")
-    if len(wave.shape) > 1:
-        wave = wave.mean(1)
-    return str(file.name), wave
+    rng = np.random.default_rng(1337)
+    return request.param, rng.random((10**request.param), dtype=np.float32)
 
 
 def test_scipy(benchmark, audio):
     def foo(data):
         scipy.signal.stft(data, noverlap=hop_len, nfft=n_fft, nperseg=win_len)
 
-    benchmark.group = group + f"{audio[0]}"
+    benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "scipy"
     benchmark(foo, audio[1])
 
 
 def test_librosa(benchmark, audio):
     def foo(data):
-        sp = librosa.stft(data, n_fft=n_fft, win_length=win_len, hop_length=hop_len)
-        np.power(np.abs(sp, out=sp), 2.0, out=sp)
+        amp = librosa.stft(data, n_fft=n_fft, win_length=win_len, hop_length=hop_len)
+        amp = np.abs(amp)
+        np.power(amp, 2.0, out=amp)
 
     librosa.set_fftlib(pyfftw.interfaces.numpy_fft)
-    benchmark.group = group + f"{audio[0]}"
+    benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "librosa"
     benchmark(foo, audio[1])
 
@@ -63,7 +57,7 @@ def test_torch(benchmark, audio):
         t = torchaudio.transforms.Spectrogram(n_fft=n_fft, hop_length=hop_len, win_length=win_len)
         t(data)
 
-    benchmark.group = group + f"{audio[0]}"
+    benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "torch"
     benchmark(foo, torch.from_numpy(audio[1]))
 
@@ -71,7 +65,8 @@ def test_torch(benchmark, audio):
 def test_ssqueezepy(benchmark, audio):
     # almost no different between if pyfftw is installed
     def foo(data):
-        sp = ssqueezepy.stft(
+        os.environ["SSQ_PARALLEL"] = "1"
+        amp = ssqueezepy.stft(
             data,
             win_len=win_len,
             hop_len=hop_len,
@@ -79,9 +74,9 @@ def test_ssqueezepy(benchmark, audio):
             dtype="float32",
             window=scipy.signal.windows.hann(win_len),
         )
-        np.power(np.sqrt(sp, out=sp), 2.0, out=sp)  # type: ignore
+        amp = np.abs(amp)  # type: ignore
+        np.power(amp, 2.0, out=amp)
 
-    os.environ["SSQ_PARALLEL"] = "1"
-    benchmark.group = group + f"{audio[0]}"
+    benchmark.group = group + f"10^{audio[0]}"
     benchmark.name = "ssqueezepy"
     benchmark(foo, audio[1])
