@@ -4,8 +4,8 @@ channels = ["conda-forge", "pytorch", "nvidia"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
 [feature.base.dependencies]
-python = "*"
-numpy = "1.26.*"
+python = "3.11"
+numpy = "1.24.*"
 pytest = "*"
 pytest-benchmark = "*"
 pytest-cov = "*"
