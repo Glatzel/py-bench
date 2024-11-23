@@ -3,7 +3,7 @@ name = "glatzel-bench"
 channels = ["conda-forge", "pytorch", "nvidia"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
-[dependencies]
+[feature.base.dependencies]
 python = "*"
 numpy = "1.26.*"
 pytest = "*"
@@ -41,6 +41,6 @@ pytorch = { version = "*", build = "*cuda*" }
 pytorch-cuda = "12.4"
 
 [environments]
-audio = ["audio"]
-arithmetic-cpu = ["arithmetic", "arithmetic-cpu"]
-arithmetic-gpu = ["arithmetic", "arithmetic-gpu"]
+audio = ["base", "audio"]
+arithmetic-cpu = ["base", "arithmetic", "arithmetic-cpu"]
+arithmetic-gpu = ["base", "arithmetic", "arithmetic-gpu"]
