@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches: main
     paths-ignore:
@@ -22,11 +23,11 @@ concurrency:
 
 jobs:
   cache-pixi:
-    if: ${{github.event_name== 'push'}}
+    if: ${{github.event_name== 'push'||github.event_name== 'workflow_dispatch'}}
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
     strategy:
       matrix:
-        pixi_env: [audio, arithmetic-cpu]
+        pixi_env: [audio, arithmetic]
     with:
       machine: windows-latest
       pixi_env: ${{ matrix.pixi_env }}
@@ -44,7 +45,7 @@ jobs:
             pixi_python_env: audio
             test_path: ./src/audio
           - submodule: false
-            pixi_python_env: arithmetic-cpu
+            pixi_python_env: arithmetic
             test_path: ./src/arithmetic
     uses: Glatzel/template/.github/workflows/pytest.yml@main
     with:
