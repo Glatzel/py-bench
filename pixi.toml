@@ -36,11 +36,7 @@ ssqueezepy = "*"
 pytorch = { version = "*", build = "*cpu*" }
 [feature.arithmetic-gpu.system-requirements]
 cuda = "12.4"
-[feature.arithmetic-gpu.dependencies]
-pytorch = { version = "*", build = "*cuda*" }
-pytorch-cuda = "12.4"
 
 [environments]
 audio = ["base", "audio"]
 arithmetic-cpu = ["base", "arithmetic", "arithmetic-cpu"]
-arithmetic-gpu = ["base", "arithmetic", "arithmetic-gpu"]
