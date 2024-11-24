@@ -1,8 +1,9 @@
 [project]
 name = "glatzel-bench"
-channels = ["conda-forge", "pytorch", "nvidia"]
+channels = ["conda-forge", "pytorch"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
+
 [feature.base.dependencies]
 python = "3.11.*"
 numpy = "1.24.*"
@@ -20,23 +21,20 @@ pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
 numexpr = "*"
-
 [feature.audio.pypi-dependencies]
 audiofile = "*"
 ssqueezepy = "*"
+
 [feature.arithmetic.dependencies]
 numba = ">=0.60.0"
 numexpr = "*"
 pyfftw = "*"
 pygal = "*"
 scipy = "*"
+pytorch = { version = "*", build = "*cpu*" }
 [feature.arithmetic.pypi-dependencies]
 ssqueezepy = "*"
-[feature.arithmetic-cpu.dependencies]
-pytorch = { version = "*", build = "*cpu*" }
-[feature.arithmetic-gpu.system-requirements]
-cuda = "12.4"
 
 [environments]
 audio = ["base", "audio"]
-arithmetic-cpu = ["base", "arithmetic", "arithmetic-cpu"]
+arithmetic = ["base", "arithmetic"]
