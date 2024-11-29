@@ -3,7 +3,6 @@ import os
 import numexpr as ne
 import numpy as np
 import pytest
-import torch
 
 
 def data_figures():
@@ -42,6 +41,8 @@ def test_ne2(benchmark, sample_data):
 
 
 def test_torch2(benchmark, sample_data):
+    import torch
+
     def foo(x, y, z):
         z = torch.sin(x) ** 2 + torch.cos(y) ** 2  # noqa: F841
 
