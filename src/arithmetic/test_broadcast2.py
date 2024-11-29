@@ -1,6 +1,5 @@
 import os
 
-
 import numpy as np
 import pytest
 
@@ -38,6 +37,7 @@ def test_np2(benchmark, sample_data):
 
 def test_ne2(benchmark, sample_data):
     import numexpr as ne
+
     def foo(x, y, z):
         ne.evaluate("sin(x)**2 + cos(y)**2", out=z)
 
