@@ -1,6 +1,6 @@
 [project]
 name = "glatzel-bench"
-channels = ["conda-forge", "pytorch"]
+channels = ["conda-forge"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
 
@@ -18,9 +18,9 @@ pyfftw = "*"
 pygal = "*"
 pysoundfile = "*"
 scipy = "*"
-torchaudio = "*"
 numexpr = "*"
 [feature.audio.pypi-dependencies]
+torchaudio = "*"
 torch = { url = "https://github.com/Glatzel/torch-minimal/releases/download/v2.5.1/torch-2.5.1-cp311-cp311-win_amd64.whl" }
 audiofile = "*"
 ssqueezepy = "*"
