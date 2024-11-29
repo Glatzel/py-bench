@@ -1,5 +1,6 @@
 import os
 
+import numexpr as ne
 import numpy as np
 import pytest
 import torch
@@ -33,8 +34,6 @@ def test_np2(benchmark, sample_data):
 
 
 def test_ne2(benchmark, sample_data):
-    ne = pytest.importorskip("numexpr")
-
     def foo(x, y, z):
         ne.evaluate("sin(x)**2 + cos(y)**2", out=z)
 
