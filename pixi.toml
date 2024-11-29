@@ -17,11 +17,11 @@ numba = ">=0.60.0"
 pyfftw = "*"
 pygal = "*"
 pysoundfile = "*"
-pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
 numexpr = "*"
 [feature.audio.pypi-dependencies]
+torch = { url = "https://github.com/Glatzel/torch-minimal/releases/download/v2.5.1/torch-2.5.1-cp311-cp311-win_amd64.whl" }
 audiofile = "*"
 ssqueezepy = "*"
 
@@ -31,8 +31,8 @@ numexpr = "*"
 pyfftw = "*"
 pygal = "*"
 scipy = "*"
-pytorch = { version = "*", build = "*cpu*" }
 [feature.arithmetic.pypi-dependencies]
+torch = { url = "https://github.com/Glatzel/torch-minimal/releases/download/v2.5.1/torch-2.5.1-cp311-cp311-win_amd64.whl" }
 ssqueezepy = "*"
 
 [environments]
