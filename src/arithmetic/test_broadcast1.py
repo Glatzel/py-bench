@@ -1,5 +1,6 @@
 import os
 
+import numexpr as ne
 import numpy as np
 import pytest
 import torch
@@ -15,8 +16,8 @@ def data_figures():
 @pytest.fixture(params=data_figures(), scope="module")
 def sample_data(request):
     n = 10**request.param
-    x = np.linspace(0, 1, n)
-    y = np.linspace(0, 1, n)
+    x = np.linspace(0, 1, n, dtype=np.float64)
+    y = np.linspace(0, 1, n, dtype=np.float64)
     z = np.empty(n, dtype=np.float64)
     return request.param, x, y, z
 
@@ -26,7 +27,9 @@ group = "Round1 "
 
 def test_np1(benchmark, sample_data):
     def foo(x, y, z):
-        z = 2 * y + 4 * x  # noqa: F841
+        np.multiply(2.0, y, out=y)
+        np.multiply(4.0, x, out=x)
+        np.add(x, y, out=z)
 
     benchmark.group = group + f"10^{sample_data[0]}"
     benchmark.name = "numpy"
@@ -34,8 +37,6 @@ def test_np1(benchmark, sample_data):
 
 
 def test_ne1(benchmark, sample_data):
-    ne = pytest.importorskip("numexpr")
-
     def foo(x, y, z):
         ne.evaluate("2*y + 4*x", out=z)
 
@@ -46,7 +47,9 @@ def test_ne1(benchmark, sample_data):
 
 def test_torch1(benchmark, sample_data):
     def foo(x, y, z):
-        z = 2 * y + 4 * x  # noqa: F841
+        torch.mul(2.0, y, out=y)
+        torch.mul(4.0, x, out=x)
+        torch.add(x, y, out=z)
 
     benchmark.name = "torch"
 
@@ -56,19 +59,4 @@ def test_torch1(benchmark, sample_data):
         torch.from_numpy(sample_data[1]),
         torch.from_numpy(sample_data[2]),
         torch.from_numpy(sample_data[3]),
-    )
-
-
-@pytest.mark.skipif(torch.cuda.device_count() < 1, reason="No cuda device.")
-def test_torch_cuda1(benchmark, sample_data):  # pragma: nocover
-    def foo(x, y, z):
-        z = 2 * y + 4 * x  # noqa: F841
-
-    benchmark.group = group + f"10^{sample_data[0]}"
-    benchmark.name = "torch cuda"
-    benchmark(
-        foo,
-        torch.from_numpy(sample_data[1]).cuda(),
-        torch.from_numpy(sample_data[2]).cuda(),
-        torch.from_numpy(sample_data[3]).cuda(),
     )

@@ -13,25 +13,27 @@ pytest-cov = "*"
 
 [feature.audio.dependencies]
 librosa = "*"
+mkl="*"
 numba = ">=0.60.0"
+numexpr = "*"
 pyfftw = "*"
 pygal = "*"
 pysoundfile = "*"
 pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 torchaudio = "*"
-numexpr = "*"
 [feature.audio.pypi-dependencies]
 audiofile = "*"
 ssqueezepy = "*"
 
 [feature.arithmetic.dependencies]
+mkl="*"
 numba = ">=0.60.0"
 numexpr = "*"
 pyfftw = "*"
 pygal = "*"
-scipy = "*"
 pytorch = { version = "*", build = "*cpu*" }
+scipy = "*"
 [feature.arithmetic.pypi-dependencies]
 ssqueezepy = "*"
 

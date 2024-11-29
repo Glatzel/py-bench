@@ -2,7 +2,6 @@ import os
 
 import numpy as np
 import pytest
-import torch
 
 
 def data_figures():
@@ -26,7 +25,11 @@ group = "Round2 "
 
 def test_np2(benchmark, sample_data):
     def foo(x, y, z):
-        z = np.sin(x) ** 2 + np.cos(y) ** 2  # noqa: F841
+        np.sin(x, out=x)
+        np.power(x, 2.0, out=x)
+        np.cos(y, out=y)
+        np.power(y, 2.0, out=y)
+        np.add(x, y, out=z)
 
     benchmark.group = group + f"10^{sample_data[0]}"
     benchmark(foo, *sample_data[1:])
@@ -43,8 +46,14 @@ def test_ne2(benchmark, sample_data):
 
 
 def test_torch2(benchmark, sample_data):
+    import torch
+
     def foo(x, y, z):
-        z = torch.sin(x) ** 2 + torch.cos(y) ** 2  # noqa: F841
+        torch.sin(x, out=x)
+        torch.pow(x, 2.0, out=x)
+        torch.cos(y, out=y)
+        torch.pow(y, 2.0, out=y)
+        torch.add(x, y, out=z)
 
     benchmark.group = group + f"10^{sample_data[0]}"
     benchmark(
@@ -53,20 +62,3 @@ def test_torch2(benchmark, sample_data):
         torch.from_numpy(sample_data[2]),
         torch.from_numpy(sample_data[3]),
     )
-
-
-@pytest.mark.skipif(torch.cuda.device_count() < 1, reason="No cuda device.")
-def test_torch_cuda2(benchmark, sample_data):  # pragma: nocover
-    def foo(x, y, z):
-        z = torch.sin(x) ** 2 + torch.cos(y) ** 2  # noqa: F841
-
-    benchmark.group = group + f"10^{sample_data[0]}"
-    benchmark(
-        foo,
-        torch.from_numpy(sample_data[1]).cuda(),
-        torch.from_numpy(sample_data[2]).cuda(),
-        torch.from_numpy(sample_data[3]).cuda(),
-    )
-
-
-print(torch.cuda.is_available(), torch.cuda.device_count())

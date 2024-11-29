@@ -98,26 +98,3 @@ def test_torch(benchmark, sample_coords):
         tcr(sample_coords[0], dtype=torch.float64) + 469704.6693,
         400,
     )
-
-
-@pytest.mark.skipif(torch.cuda.device_count() < 1, reason="No cuda device.")
-def test_torch_cuda(benchmark, sample_coords):  # pragma: nocover
-    from torch import rand as tcr
-
-    def vector(x, y, h, r=6378_137.0, x0=0.0, y0=500000.0):
-        q = h / r
-        factor = q / (1 + q)
-        x = x - factor * (x - x0)
-        y = y - factor * (y - y0)
-        return x, y
-
-    benchmark.group = group + str(sample_coords[0])
-    benchmark(
-        vector,
-        tcr(sample_coords[0], dtype=torch.float64, device="cuda") + 2821940.796,
-        tcr(sample_coords[0], dtype=torch.float64, device="cuda") + 469704.6693,
-        400,
-    )
-
-
-print(torch.cuda.is_available(), torch.cuda.device_count())

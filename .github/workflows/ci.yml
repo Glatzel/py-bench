@@ -47,6 +47,7 @@ jobs:
           - submodule: false
             pixi_python_env: arithmetic
             test_path: ./src/arithmetic
+      fail-fast: false
     uses: Glatzel/template/.github/workflows/pytest.yml@main
     with:
       name: test
