@@ -1,6 +1,6 @@
 [project]
 name = "glatzel-bench"
-channels = ["conda-forge"]
+channels = ["conda-forge", "pytorch"]
 platforms = ["win-64"]
 authors = ["Glatzel <893016099@qq.com>"]
 
@@ -19,10 +19,10 @@ numexpr = "*"
 pyfftw = "*"
 pygal = "*"
 pysoundfile = "*"
+pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
-[feature.audio.pypi-dependencies]
 torchaudio = "*"
-torch = { url = "https://github.com/Glatzel/torch-minimal/releases/download/v2.5.1/torch-2.5.1-cp311-cp311-win_amd64.whl" }
+[feature.audio.pypi-dependencies]
 audiofile = "*"
 ssqueezepy = "*"
 
@@ -32,9 +32,9 @@ numba = ">=0.60.0"
 numexpr = "*"
 pyfftw = "*"
 pygal = "*"
+pytorch = { version = "*", build = "*cpu*" }
 scipy = "*"
 [feature.arithmetic.pypi-dependencies]
-torch = { url = "https://github.com/Glatzel/torch-minimal/releases/download/v2.5.1/torch-2.5.1-cp311-cp311-win_amd64.whl" }
 ssqueezepy = "*"
 
 [environments]
