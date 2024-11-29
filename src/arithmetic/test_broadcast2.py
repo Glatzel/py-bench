@@ -26,7 +26,11 @@ group = "Round2 "
 
 def test_np2(benchmark, sample_data):
     def foo(x, y, z):
-        z = np.sin(x) ** 2 + np.cos(y) ** 2  # noqa: F841
+        np.sin(x, out=x)
+        np.power(x, 2.0, out=x)
+        np.cos(y, out=y)
+        np.power(y, 2.0, out=y)
+        np.add(x, y, out=z)
 
     benchmark.group = group + f"10^{sample_data[0]}"
     benchmark(foo, *sample_data[1:])
@@ -44,7 +48,11 @@ def test_torch2(benchmark, sample_data):
     import torch
 
     def foo(x, y, z):
-        z = torch.sin(x) ** 2 + torch.cos(y) ** 2  # noqa: F841
+        torch.sin(x, out=x)
+        torch.pow(x, 2.0, out=x)
+        torch.cos(y, out=y)
+        torch.pow(y, 2.0, out=y)
+        torch.add(x, y, out=z)
 
     benchmark.group = group + f"10^{sample_data[0]}"
     benchmark(
