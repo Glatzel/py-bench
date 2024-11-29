@@ -13,12 +13,13 @@ pytest-cov = "*"
 
 [feature.audio.dependencies]
 librosa = "*"
+mkl="*"
 numba = ">=0.60.0"
+numexpr = "*"
 pyfftw = "*"
 pygal = "*"
 pysoundfile = "*"
 scipy = "*"
-numexpr = "*"
 [feature.audio.pypi-dependencies]
 torchaudio = "*"
 torch = { url = "https://github.com/Glatzel/torch-minimal/releases/download/v2.5.1/torch-2.5.1-cp311-cp311-win_amd64.whl" }
@@ -26,6 +27,7 @@ audiofile = "*"
 ssqueezepy = "*"
 
 [feature.arithmetic.dependencies]
+mkl="*"
 numba = ">=0.60.0"
 numexpr = "*"
 pyfftw = "*"
