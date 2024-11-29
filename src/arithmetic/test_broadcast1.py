@@ -57,18 +57,3 @@ def test_torch1(benchmark, sample_data):
         torch.from_numpy(sample_data[2]),
         torch.from_numpy(sample_data[3]),
     )
-
-
-@pytest.mark.skipif(torch.cuda.device_count() < 1, reason="No cuda device.")
-def test_torch_cuda1(benchmark, sample_data):  # pragma: nocover
-    def foo(x, y, z):
-        z = 2 * y + 4 * x  # noqa: F841
-
-    benchmark.group = group + f"10^{sample_data[0]}"
-    benchmark.name = "torch cuda"
-    benchmark(
-        foo,
-        torch.from_numpy(sample_data[1]).cuda(),
-        torch.from_numpy(sample_data[2]).cuda(),
-        torch.from_numpy(sample_data[3]).cuda(),
-    )
