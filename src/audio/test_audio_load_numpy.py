@@ -42,7 +42,7 @@ def test_audiofile(benchmark, file):
 
 def test_librosa(benchmark, file):
     def foo():
-        librosa.load(file, mono=False, sr=None)
+        librosa.load(file, mono=False, sr=Noe)
 
     benchmark.group = group + file.name
     benchmark.name = "librosa"
