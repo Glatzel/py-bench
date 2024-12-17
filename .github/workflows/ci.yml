@@ -22,7 +22,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cache-pixi: 
+  cache-pixi:
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
     strategy:
       matrix:
