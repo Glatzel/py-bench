@@ -22,8 +22,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cache-pixi:
-    if: ${{github.event_name== 'push'||github.event_name== 'workflow_dispatch'}}
+  cache-pixi: 
     uses: Glatzel/template/.github/workflows/cache-pixi.yml@main
     strategy:
       matrix:
