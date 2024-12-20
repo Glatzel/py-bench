@@ -25,7 +25,7 @@ group = "Round2 "
 
 def test_np2(benchmark, sample_data):
     def foo(x, y, z):
-        np.sin(x, out=x)
+        np.sin(x, ot=x)
         np.power(x, 2.0, out=x)
         np.cos(y, out=y)
         np.power(y, 2.0, out=y)
