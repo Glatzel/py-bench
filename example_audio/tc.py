@@ -34,6 +34,6 @@ db = torchaudio.functional.amplitude_to_DB(
 t4 = time.perf_counter() - t4
 print(f"db: {t4}")
 
-print(f"all: {t1+t2+t3+t4}")
+print(f"all: {t1 + t2 + t3 + t4}")
 print(db)
 print(db.shape)

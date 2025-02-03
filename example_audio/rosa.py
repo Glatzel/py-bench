@@ -38,5 +38,5 @@ db = librosa.power_to_db(
 t4 = time.perf_counter() - t4
 print(f"db: {t4}")
 
-print(f"all: {t1+t2+t3+t4}")
+print(f"all: {t1 + t2 + t3 + t4}")
 print(db.shape)
